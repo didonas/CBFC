@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 380" width="100%" height="100%">
+  <defs>
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4D068" />
+      <stop offset="40%" stop-color="#D4A72C" />
+      <stop offset="80%" stop-color="#9E7611" />
+      <stop offset="100%" stop-color="#F9DE8B" />
+    </linearGradient>
+    <!-- Deep Red Gradient -->
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D61836" />
+      <stop offset="60%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#8F0B23" />
+    </linearGradient>
+    <filter id="crestShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- STARS ON TOP (representing 2 National I-League Championships) -->
+  <g fill="url(#goldGrad)" stroke="#664D0A" stroke-width="0.8" filter="url(#crestShadow)">
+    <!-- Left Star -->
+    <polygon points="120,25 125,40 140,40 128,50 132,65 120,55 108,65 112,50 100,40 115,40" />
+    <!-- Right Star -->
+    <polygon points="180,25 185,40 200,40 188,50 192,65 180,55 168,65 172,50 160,40 175,40" />
+  </g>
+
+  <!-- MAIN SHIELD OUTER BORDER -->
+  <path d="M 40,75 L 260,75 C 260,195 240,270 150,345 C 60,270 40,195 40,75 Z"
+        fill="#111111" stroke="url(#goldGrad)" stroke-width="7" filter="url(#crestShadow)"/>
+
+  <!-- INNER GOLD ACCENT BORDER -->
+  <path d="M 48,82 L 252,82 C 252,192 234,263 150,335 C 66,263 48,192 48,82 Z"
+        fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+
+  <!-- UPPER RIBBON / BANNER FOR ESTD 1988 -->
+  <path d="M 50,83 L 250,83 L 245,120 L 55,120 Z" fill="#1A1A1A" />
+  <line x1="50" y1="120" x2="250" y2="120" stroke="url(#goldGrad)" stroke-width="2"/>
+  <text x="150" y="108" font-family="'Barlow Condensed', 'Arial Black', sans-serif" font-weight="900" font-size="19" fill="url(#goldGrad)" letter-spacing="4" text-anchor="middle">
+    ESTD 1988
+  </text>
+
+  <!-- MAIN BRAND BANNER -->
+  <rect x="35" y="122" width="230" height="52" rx="4" fill="#0D0D0E" stroke="url(#goldGrad)" stroke-width="2.5" />
+  <text x="150" y="156" font-family="'Barlow Condensed', 'Arial Black', sans-serif" font-weight="900" font-size="25" fill="#FFFFFF" letter-spacing="2" text-anchor="middle">
+    CHURCHILL BROTHERS
+  </text>
+
+  <!-- LOWER RED SHIELD AREA -->
+  <path d="M 50,175 L 250,175 C 250,230 220,285 150,332 C 80,285 50,230 50,175 Z"
+        fill="url(#redGrad)" stroke="none"/>
+
+  <!-- SUBTLE GEOMETRIC RED PATTERNS (Red Machines dynamic motif) -->
+  <path d="M 50,175 L 150,332 L 150,175 Z" fill="#B00D28" opacity="0.35"/>
+  <path d="M 70,175 L 150,332 L 110,175 Z" fill="#FFFFFF" opacity="0.08"/>
+
+  <!-- SOCCER BALL IN CENTER -->
+  <g transform="translate(150, 235) scale(0.72)">
+    <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="#111111" stroke-width="3"/>
+    <!-- Center pentagon -->
+    <polygon points="0,-16 15,-5 9,14 -9,14 -15,-5" fill="#111111"/>
+    <!-- Connecting seams & outer pentagons -->
+    <line x1="0" y1="-16" x2="0" y2="-42" stroke="#111111" stroke-width="3"/>
+    <line x1="15" y1="-5" x2="39" y2="-15" stroke="#111111" stroke-width="3"/>
+    <line x1="9" y1="14" x2="25" y2="34" stroke="#111111" stroke-width="3"/>
+    <line x1="-9" y1="14" x2="-25" y2="34" stroke="#111111" stroke-width="3"/>
+    <line x1="-15" y1="-5" x2="-39" y2="-15" stroke="#111111" stroke-width="3"/>
+    <!-- Side partial pentagons -->
+    <path d="M -15,-40 C -8,-42 8,-42 15,-40 L 0,-16 Z" fill="#111111" opacity="0.1"/>
+  </g>
+
+  <!-- BOTTOM SCROLL: SC GOA -->
+  <path d="M 90,292 Q 150,312 210,292 L 205,318 Q 150,338 95,318 Z" fill="#0D0D0E" stroke="url(#goldGrad)" stroke-width="2"/>
+  <text x="150" y="312" font-family="'Barlow Condensed', 'Arial Black', sans-serif" font-weight="900" font-size="16" fill="url(#goldGrad)" letter-spacing="3" text-anchor="middle">
+    SC GOA
+  </text>
+</svg>
