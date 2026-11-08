@@ -33,33 +33,33 @@ export default function TeamPage() {
   });
 
   return (
-    <div className="space-y-12 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-offWhite text-charcoal">
+    <div className="space-y-12 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#0B0E17] text-zinc-100">
       {/* Header */}
-      <div className="bg-white border border-lightBorder p-8 sm:p-10 shadow-card">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-offWhite border border-lightBorder text-xs font-display font-bold uppercase tracking-widest text-primary mb-3">
+      <div className="bg-[#141926] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C2436] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary mb-3">
           <Users className="w-3.5 h-3.5" />
           FIRST-TEAM SQUAD • 2026/27 CAMPAIGN
         </div>
-        <h1 className="font-display font-black text-4xl sm:text-6xl text-charcoal uppercase tracking-tight leading-none">
+        <h1 className="font-display font-black text-4xl sm:text-6xl text-white uppercase tracking-tight leading-none">
           THE RED MACHINES SQUAD
         </h1>
-        <p className="text-sm sm:text-base text-charcoal/70 max-w-2xl mt-3 leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mt-3 leading-relaxed">
           Meet the players representing Churchill Brothers FC Goa. A blend of Goan local heroes, national prospects, and international firepower.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 border border-lightBorder shadow-card">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#141926] p-4 rounded-xl border border-white/10 shadow-xl">
         {/* Position Filter Tabs */}
         <div className="flex flex-wrap items-center gap-1.5 w-full sm:w-auto">
           {positions.map((pos) => (
             <button
               key={pos}
               onClick={() => setSelectedPosition(pos)}
-              className={`px-4 py-2 text-xs font-display font-bold uppercase tracking-wider transition ${
+              className={`px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition ${
                 selectedPosition === pos
-                  ? 'bg-primary text-white shadow-sm'
-                  : 'bg-offWhite text-charcoal hover:bg-zinc-100 border border-lightBorder'
+                  ? 'bg-primary text-white shadow-club'
+                  : 'bg-[#1C2436] text-zinc-300 hover:text-white hover:bg-[#252E44] border border-white/10'
               }`}
             >
               {pos === 'All' ? 'All Squad' : `${pos}s`}
@@ -69,13 +69,13 @@ export default function TeamPage() {
 
         {/* Search Input */}
         <div className="relative w-full sm:w-72">
-          <Search className="w-4 h-4 text-mutedGrey absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search by name, number, nation..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-offWhite border border-lightBorder pl-9 pr-4 py-2 text-xs text-charcoal placeholder-mutedGrey focus:outline-none focus:border-primary transition"
+            className="w-full bg-[#1C2436] border border-white/10 rounded-lg pl-9 pr-4 py-2 text-xs text-white placeholder-zinc-400 focus:outline-none focus:border-primary transition"
           />
         </div>
       </div>
@@ -90,19 +90,19 @@ export default function TeamPage() {
           ))}
         </StaggerContainer>
       ) : (
-        <div className="bg-white border border-lightBorder p-12 text-center text-mutedGrey shadow-card">
-          <p className="text-base font-bold text-charcoal">No players found</p>
+        <div className="bg-[#141926] border border-white/10 rounded-xl p-12 text-center text-zinc-400 shadow-xl">
+          <p className="text-base font-bold text-white">No players found</p>
           <p className="text-xs mt-1">Try adjusting your position filter or search keywords.</p>
         </div>
       )}
 
       {/* Coaching & Technical Staff Section */}
-      <div className="pt-10 border-t border-lightBorder space-y-6">
+      <div className="pt-10 border-t border-white/10 space-y-6">
         <div>
           <span className="text-xs font-display font-bold text-primary tracking-widest uppercase">
             TECHNICAL LEADERSHIP
           </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-charcoal uppercase tracking-tight">
+          <h2 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
             COACHING & MANAGEMENT STAFF
           </h2>
         </div>
@@ -111,22 +111,22 @@ export default function TeamPage() {
           {STAFF_MEMBERS.map((staff) => (
             <div
               key={staff.id}
-              className="bg-white border border-lightBorder p-5 shadow-card hover:border-primary transition flex flex-col justify-between"
+              className="bg-[#141926] border border-white/10 rounded-xl p-5 shadow-xl hover:border-primary/50 transition flex flex-col justify-between group"
             >
               <div>
-                <div className="w-10 h-10 bg-offWhite border border-lightBorder flex items-center justify-center text-primary mb-3">
-                  <UserCheck className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-full bg-[#1C2436] border border-white/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+                  <UserCheck className="w-5 h-5 text-brandGold" />
                 </div>
-                <h3 className="font-display font-bold text-base text-charcoal">
+                <h3 className="font-display font-bold text-base text-white">
                   {staff.fullName}
                 </h3>
                 <span className="text-xs font-bold text-primary block mt-0.5">
                   {staff.role}
                 </span>
-                <span className="text-[10px] text-mutedGrey uppercase tracking-wider block mt-0.5 font-medium">
+                <span className="text-[10px] text-zinc-400 uppercase tracking-wider block mt-0.5 font-medium">
                   {staff.category} • {staff.nationality}
                 </span>
-                <p className="mt-3 text-xs text-charcoal/70 leading-relaxed line-clamp-3">
+                <p className="mt-3 text-xs text-zinc-300 leading-relaxed line-clamp-3">
                   {staff.bio}
                 </p>
               </div>

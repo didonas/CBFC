@@ -15,10 +15,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const isOutOfStock = totalStock <= 0;
 
   return (
-    <div className="group bg-white border border-lightBorder hover:border-primary hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 overflow-hidden flex flex-col justify-between">
+    <div className="group bg-[#151821] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-xl overflow-hidden flex flex-col justify-between">
       <div>
         {/* Product Image Area */}
-        <Link href={`/shop/${product.slug}`} className="block relative aspect-square bg-[#F3F2EE] overflow-hidden">
+        <Link href={`/shop/${product.slug}`} className="block relative aspect-[4/5] bg-[#0D0F15] overflow-hidden">
           <Image
             src={product.featuredImageUrl}
             alt={product.name}
@@ -29,14 +29,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           {/* Promotional / Kit Badge */}
           {product.badge && (
-            <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-primary text-white font-display font-bold text-[10px] uppercase tracking-wider shadow-sm">
+            <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-primary text-white font-display font-bold text-[10px] uppercase tracking-wider shadow-club">
               {product.badge}
             </span>
           )}
 
           {isOutOfStock && (
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-xs flex items-center justify-center">
-              <span className="px-3 py-1 rounded bg-charcoal text-white font-display font-bold text-xs uppercase tracking-wider">
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-xs flex items-center justify-center">
+              <span className="px-3 py-1 rounded bg-[#151821] border border-white/10 text-white font-display font-bold text-xs uppercase tracking-wider">
                 Out of Demo Stock
               </span>
             </div>
@@ -49,13 +49,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span className="font-bold uppercase tracking-wider text-primary text-[11px]">
               {product.categoryName}
             </span>
-            <span className="text-[11px] text-mutedGrey">
+            <span className="text-[11px] text-zinc-400">
               {totalStock > 0 ? `${totalStock} in stock` : 'Restocking soon'}
             </span>
           </div>
 
           <Link href={`/shop/${product.slug}`}>
-            <h3 className="font-display font-bold text-base text-charcoal group-hover:text-primary transition line-clamp-1">
+            <h3 className="font-display font-bold text-base text-white group-hover:text-primary transition line-clamp-1">
               {product.name}
             </h3>
           </Link>
@@ -66,10 +66,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               {product.variants.map((v) => (
                 <span
                   key={v.id}
-                  className={`text-[10px] font-semibold px-1.5 py-0.5 border ${
+                  className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${
                     v.demoStockQuantity > 0
-                      ? 'border-lightBorder bg-offWhite text-charcoal'
-                      : 'border-lightBorder bg-zinc-100 text-zinc-400 line-through'
+                      ? 'border-white/10 bg-[#0D0F15] text-zinc-200'
+                      : 'border-white/5 bg-black/40 text-zinc-600 line-through'
                   }`}
                 >
                   {v.size}
@@ -82,13 +82,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* Bottom Pricing & CTA */}
       <div className="p-4 pt-0">
-        <div className="pt-3 border-t border-lightBorder flex items-center justify-between">
+        <div className="pt-3 border-t border-white/10 flex items-center justify-between">
           <div className="flex items-baseline gap-2">
-            <span className="font-display font-black text-xl text-charcoal">
+            <span className="font-display font-black text-xl text-white">
               ₹{product.priceInr.toLocaleString('en-IN')}
             </span>
             {product.compareAtPriceInr && (
-              <span className="text-xs text-mutedGrey line-through">
+              <span className="text-xs text-zinc-500 line-through">
                 ₹{product.compareAtPriceInr.toLocaleString('en-IN')}
               </span>
             )}
@@ -98,8 +98,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             href={`/shop/${product.slug}`}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-primary hover:bg-deepRed text-white text-xs font-display font-bold uppercase tracking-wider transition shadow-sm"
           >
-            <ShoppingBag className="w-3.5 h-3.5" />
-            <span>Select</span>
+            <span>View Kit</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>

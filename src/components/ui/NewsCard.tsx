@@ -19,10 +19,10 @@ export const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   });
 
   return (
-    <article className="group bg-white border border-lightBorder hover:border-primary hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 overflow-hidden flex flex-col justify-between">
+    <article className="group bg-[#151821] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-xl overflow-hidden flex flex-col justify-between">
       <div>
         {/* Featured Image */}
-        <Link href={`/news/${post.slug}`} className="block relative aspect-[16/9] w-full bg-[#EAE8E2] overflow-hidden">
+        <Link href={`/news/${post.slug}`} className="block relative aspect-[16/9] w-full bg-[#0D0F15] overflow-hidden">
           <Image
             src={post.featuredImageUrl}
             alt={post.title}
@@ -37,25 +37,25 @@ export const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
 
         {/* Content */}
         <div className="p-5">
-          <div className="flex items-center gap-2.5 text-xs text-mutedGrey mb-2 font-medium">
+          <div className="flex items-center gap-2.5 text-xs text-zinc-400 mb-2 font-medium">
             <span className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-primary" />
               {formattedDate}
             </span>
-            <span className="text-zinc-300">•</span>
+            <span className="text-zinc-600">•</span>
             <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-mutedGrey" />
+              <Clock className="w-3.5 h-3.5 text-zinc-400" />
               {post.readTimeMinutes} min read
             </span>
           </div>
 
           <Link href={`/news/${post.slug}`}>
-            <h3 className="font-display font-bold text-lg text-charcoal group-hover:text-primary transition line-clamp-2 leading-snug">
+            <h3 className="font-display font-bold text-lg text-white group-hover:text-primary transition line-clamp-2 leading-snug">
               {post.title}
             </h3>
           </Link>
 
-          <p className="mt-2 text-xs text-charcoal/70 line-clamp-3 leading-relaxed">
+          <p className="mt-2 text-xs text-zinc-300 line-clamp-3 leading-relaxed">
             {post.excerpt}
           </p>
         </div>

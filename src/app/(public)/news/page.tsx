@@ -24,32 +24,32 @@ export default function NewsPage() {
   });
 
   return (
-    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-offWhite text-charcoal">
+    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#0B0E17] text-zinc-100">
       {/* Header */}
-      <div className="bg-white border border-lightBorder p-8 sm:p-10 shadow-card space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-offWhite border border-lightBorder text-xs font-display font-bold uppercase tracking-widest text-primary">
+      <div className="bg-[#141926] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C2436] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary">
           <Newspaper className="w-3.5 h-3.5" />
           OFFICIAL EDITORIAL & MEDIA DESK
         </div>
-        <h1 className="font-display font-black text-4xl sm:text-6xl text-charcoal uppercase tracking-tight leading-none">
+        <h1 className="font-display font-black text-4xl sm:text-6xl text-white uppercase tracking-tight leading-none">
           CLUB NEWS & PRESS RELEASES
         </h1>
-        <p className="text-sm sm:text-base text-charcoal/70 max-w-2xl leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
           Get official match previews, post-match analysis, gaffer interviews, and announcements direct from Churchill Brothers FC Goa.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 border border-lightBorder shadow-card">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#141926] p-4 rounded-xl border border-white/10 shadow-xl">
         <div className="flex flex-wrap items-center gap-1.5 w-full sm:w-auto">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 text-xs font-display font-bold uppercase tracking-wider transition ${
+              className={`px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition ${
                 selectedCategory === cat
-                  ? 'bg-primary text-white shadow-sm'
-                  : 'bg-offWhite text-charcoal hover:bg-zinc-100 border border-lightBorder'
+                  ? 'bg-primary text-white shadow-club'
+                  : 'bg-[#1C2436] text-zinc-300 hover:text-white hover:bg-[#252E44] border border-white/10'
               }`}
             >
               {cat === 'All' ? 'All Stories' : cat}
@@ -58,13 +58,13 @@ export default function NewsPage() {
         </div>
 
         <div className="relative w-full sm:w-72">
-          <Search className="w-4 h-4 text-mutedGrey absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search news..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-offWhite border border-lightBorder pl-9 pr-4 py-2 text-xs text-charcoal placeholder-mutedGrey focus:outline-none focus:border-primary transition font-medium"
+            className="w-full bg-[#1C2436] border border-white/10 rounded-lg pl-9 pr-4 py-2 text-xs text-white placeholder-zinc-400 focus:outline-none focus:border-primary transition font-medium"
           />
         </div>
       </div>
@@ -79,8 +79,8 @@ export default function NewsPage() {
           ))}
         </StaggerContainer>
       ) : (
-        <div className="bg-white border border-lightBorder p-12 text-center text-mutedGrey shadow-card">
-          <p className="text-base font-bold text-charcoal">No articles found</p>
+        <div className="bg-[#141926] border border-white/10 rounded-xl p-12 text-center text-zinc-400 shadow-xl">
+          <p className="text-base font-bold text-white">No articles found</p>
           <p className="text-xs mt-1">Try resetting your filter or search keywords.</p>
         </div>
       )}

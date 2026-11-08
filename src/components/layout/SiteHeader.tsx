@@ -47,8 +47,8 @@ export const SiteHeader: React.FC = () => {
     <header
       className={`sticky top-0 z-40 transition-all duration-200 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-lightBorder'
-          : 'bg-white border-b border-lightBorder'
+          ? 'bg-[#0D0F15]/95 backdrop-blur-md shadow-lg border-b border-white/10'
+          : 'bg-[#0D0F15] border-b border-white/10'
       }`}
     >
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -60,15 +60,15 @@ export const SiteHeader: React.FC = () => {
           >
             <ClubCrest size={46} priority />
             <div className="flex flex-col">
-              <span className="font-display font-black text-xl tracking-wider uppercase text-charcoal group-hover:text-primary transition duration-150">
+              <span className="font-display font-black text-xl tracking-wider uppercase text-white group-hover:text-primary transition duration-150">
                 CHURCHILL BROTHERS
               </span>
               <div className="flex items-center gap-1.5">
                 <span className="text-[10px] tracking-[0.2em] font-display font-bold uppercase text-primary">
                   THE RED MACHINES
                 </span>
-                <span className="text-zinc-300 text-[10px]">•</span>
-                <span className="text-[10px] tracking-wider uppercase font-medium text-mutedGrey">
+                <span className="text-zinc-600 text-[10px]">•</span>
+                <span className="text-[10px] tracking-wider uppercase font-medium text-zinc-400">
                   ESTD 1988
                 </span>
               </div>
@@ -81,15 +81,15 @@ export const SiteHeader: React.FC = () => {
               href="/"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/') && pathname === '/'
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>Home</span>
               {isActive('/') && pathname === '/' && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -104,20 +104,20 @@ export const SiteHeader: React.FC = () => {
               <button
                 className={`relative flex items-center gap-1 px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                   isActive('/club')
-                    ? 'text-primary font-bold'
-                    : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                    ? 'text-white font-bold'
+                    : 'text-zinc-300 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <span>Club</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 text-mutedGrey ${
+                  className={`w-3.5 h-3.5 transition-transform duration-200 text-zinc-400 ${
                     clubDropdownOpen ? 'rotate-180 text-primary' : ''
                   }`}
                 />
                 {isActive('/club') && (
                   <motion.div
                     layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                   />
                 )}
@@ -130,61 +130,61 @@ export const SiteHeader: React.FC = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.99 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute top-full left-0 w-64 bg-white border border-lightBorder rounded-md shadow-dropdown py-1.5 z-50"
+                    className="absolute top-full left-0 w-64 bg-[#151821] border border-white/10 rounded-md shadow-2xl py-1.5 z-50 backdrop-blur-xl"
                   >
                     <Link
                       href="/club"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
                       onClick={() => setClubDropdownOpen(false)}
                     >
                       <Shield className="w-4 h-4 text-primary shrink-0" />
                       <div>
-                        <div className="font-semibold text-charcoal">Club Identity</div>
-                        <div className="text-xs text-mutedGrey">History, values & Goan heritage</div>
+                        <div className="font-semibold text-white">Club Identity</div>
+                        <div className="text-xs text-zinc-400">History, values & Goan heritage</div>
                       </div>
                     </Link>
                     <Link
                       href="/club#timeline"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
                       onClick={() => setClubDropdownOpen(false)}
                     >
                       <History className="w-4 h-4 text-brandGold shrink-0" />
                       <div>
-                        <div className="font-semibold text-charcoal">Historical Timeline</div>
-                        <div className="text-xs text-mutedGrey">Milestones from 1988 to today</div>
+                        <div className="font-semibold text-white">Historical Timeline</div>
+                        <div className="text-xs text-zinc-400">Milestones from 1988 to today</div>
                       </div>
                     </Link>
                     <Link
                       href="/club#honours"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
                       onClick={() => setClubDropdownOpen(false)}
                     >
                       <Trophy className="w-4 h-4 text-brandGold shrink-0" />
                       <div>
-                        <div className="font-semibold text-charcoal">Trophy Cabinet</div>
-                        <div className="text-xs text-mutedGrey">I-League, Durand Cup & Shields</div>
+                        <div className="font-semibold text-white">Trophy Cabinet</div>
+                        <div className="text-xs text-zinc-400">I-League, Durand Cup & Shields</div>
                       </div>
                     </Link>
                     <Link
                       href="/club#stadium"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
                       onClick={() => setClubDropdownOpen(false)}
                     >
                       <MapPin className="w-4 h-4 text-primary shrink-0" />
                       <div>
-                        <div className="font-semibold text-charcoal">Fatorda Fortress</div>
-                        <div className="text-xs text-mutedGrey">Home ground & stadiums</div>
+                        <div className="font-semibold text-white">Fatorda Fortress</div>
+                        <div className="text-xs text-zinc-400">Home ground & stadiums</div>
                       </div>
                     </Link>
                     <Link
                       href="/club#rivalries"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
                       onClick={() => setClubDropdownOpen(false)}
                     >
-                      <Flame className="w-4 h-4 text-deepRed shrink-0" />
+                      <Flame className="w-4 h-4 text-primary shrink-0" />
                       <div>
-                        <div className="font-semibold text-charcoal">The Goan Derby</div>
-                        <div className="text-xs text-mutedGrey">Historic state rivalries</div>
+                        <div className="font-semibold text-white">The Goan Derby</div>
+                        <div className="text-xs text-zinc-400">Historic state rivalries</div>
                       </div>
                     </Link>
                   </motion.div>
@@ -196,15 +196,15 @@ export const SiteHeader: React.FC = () => {
               href="/team"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/team')
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>Squad</span>
               {isActive('/team') && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -219,20 +219,20 @@ export const SiteHeader: React.FC = () => {
               <button
                 className={`relative flex items-center gap-1 px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                   isActive('/matches')
-                    ? 'text-primary font-bold'
-                    : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                    ? 'text-white font-bold'
+                    : 'text-zinc-300 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <span>Matches</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 text-mutedGrey ${
+                  className={`w-3.5 h-3.5 transition-transform duration-200 text-zinc-400 ${
                     matchesDropdownOpen ? 'rotate-180 text-primary' : ''
                   }`}
                 />
                 {isActive('/matches') && (
                   <motion.div
                     layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                   />
                 )}
@@ -245,25 +245,25 @@ export const SiteHeader: React.FC = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.99 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute top-full left-0 w-56 bg-white border border-lightBorder rounded-md shadow-dropdown py-1.5 z-50"
+                    className="absolute top-full left-0 w-56 bg-[#151821] border border-white/10 rounded-md shadow-2xl py-1.5 z-50 backdrop-blur-xl"
                   >
                     <Link
                       href="/matches"
-                      className="block px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition font-medium"
+                      className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition font-medium"
                       onClick={() => setMatchesDropdownOpen(false)}
                     >
                       Fixtures & Results
                     </Link>
                     <Link
                       href="/matches?tab=upcoming"
-                      className="block px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition font-medium"
+                      className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition font-medium"
                       onClick={() => setMatchesDropdownOpen(false)}
                     >
                       Upcoming Fixtures
                     </Link>
                     <Link
                       href="/matches?tab=results"
-                      className="block px-4 py-2.5 text-sm text-charcoal hover:text-primary hover:bg-offWhite transition font-medium"
+                      className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition font-medium"
                       onClick={() => setMatchesDropdownOpen(false)}
                     >
                       Match Reports & Results
@@ -277,15 +277,15 @@ export const SiteHeader: React.FC = () => {
               href="/tickets"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/tickets')
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>Tickets</span>
               {isActive('/tickets') && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -295,15 +295,15 @@ export const SiteHeader: React.FC = () => {
               href="/shop"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/shop')
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>Shop</span>
               {isActive('/shop') && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -313,15 +313,15 @@ export const SiteHeader: React.FC = () => {
               href="/news"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/news')
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>News</span>
               {isActive('/news') && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -331,15 +331,15 @@ export const SiteHeader: React.FC = () => {
               href="/media"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/media')
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>Media</span>
               {isActive('/media') && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -349,15 +349,15 @@ export const SiteHeader: React.FC = () => {
               href="/partners"
               className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/partners')
-                  ? 'text-primary font-bold'
-                  : 'text-charcoal hover:text-primary hover:bg-offWhite'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
               }`}
             >
               <span>Partners</span>
               {isActive('/partners') && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 />
               )}
@@ -369,7 +369,7 @@ export const SiteHeader: React.FC = () => {
             {/* Quick Ticket CTA */}
             <Link
               href="/tickets"
-              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded bg-primary hover:bg-deepRed active:scale-95 text-white text-xs font-display font-bold uppercase tracking-wider transition shadow-sm"
+              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded bg-primary hover:bg-deepRed active:scale-95 text-white text-xs font-display font-bold uppercase tracking-wider transition shadow-club"
             >
               <Ticket className="w-3.5 h-3.5" />
               <span>Book Tickets</span>
@@ -378,7 +378,7 @@ export const SiteHeader: React.FC = () => {
             {/* Shopping Cart */}
             <Link
               href="/cart"
-              className="relative p-2 text-charcoal hover:text-primary transition rounded-full hover:bg-offWhite"
+              className="relative p-2 text-zinc-300 hover:text-white transition rounded-full hover:bg-white/5"
               title="Shopping Cart"
             >
               <ShoppingBag className="w-5 h-5" />
@@ -398,8 +398,8 @@ export const SiteHeader: React.FC = () => {
             {/* Customer Account */}
             <Link
               href="/account"
-              className={`p-2 transition rounded-full hover:bg-offWhite ${
-                isActive('/account') ? 'text-primary' : 'text-charcoal hover:text-primary'
+              className={`p-2 transition rounded-full hover:bg-white/5 ${
+                isActive('/account') ? 'text-primary' : 'text-zinc-300 hover:text-white'
               }`}
               title={currentUser ? `Account: ${currentUser.fullName}` : 'Sign In'}
             >
@@ -410,7 +410,7 @@ export const SiteHeader: React.FC = () => {
             {currentUser?.role === 'super_admin' && (
               <Link
                 href="/admin"
-                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-white transition text-xs font-display font-bold uppercase tracking-wider"
+                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary/20 border border-primary/40 text-primary hover:bg-primary hover:text-white transition text-xs font-display font-bold uppercase tracking-wider"
                 title="Go to Admin Dashboard"
               >
                 Admin
@@ -420,7 +420,7 @@ export const SiteHeader: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded text-charcoal hover:text-primary hover:bg-offWhite focus:outline-none transition"
+              className="lg:hidden p-2 rounded text-zinc-300 hover:text-white hover:bg-white/5 focus:outline-none transition"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -429,7 +429,7 @@ export const SiteHeader: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer with AnimatePresence */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -437,76 +437,76 @@ export const SiteHeader: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="lg:hidden bg-white border-b border-lightBorder px-4 pt-3 pb-6 space-y-1 shadow-dropdown overflow-hidden"
+            className="lg:hidden bg-[#0D0F15] border-b border-white/10 px-4 pt-3 pb-6 space-y-1 shadow-2xl overflow-hidden"
           >
             <Link
               href="/"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/club"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Club & History
             </Link>
             <Link
               href="/team"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               First Team Squad
             </Link>
             <Link
               href="/matches"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Fixtures & Results
             </Link>
             <Link
               href="/tickets"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-primary font-bold hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-primary font-bold hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Match Tickets
             </Link>
             <Link
               href="/shop"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Official Club Shop
             </Link>
             <Link
               href="/news"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               News & Press
             </Link>
             <Link
               href="/media"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Photo & Video Media
             </Link>
             <Link
               href="/partners"
-              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-charcoal hover:text-primary hover:bg-offWhite rounded"
+              className="block px-3 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-200 hover:text-white hover:bg-white/5 rounded"
               onClick={() => setMobileMenuOpen(false)}
             >
               Partners & Sponsors
             </Link>
 
-            <div className="pt-3 mt-2 border-t border-lightBorder flex items-center justify-between">
+            <div className="pt-3 mt-2 border-t border-white/10 flex items-center justify-between">
               <Link
                 href="/account"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-charcoal"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-200"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <User className="w-4 h-4 text-primary" />

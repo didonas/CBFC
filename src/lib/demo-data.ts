@@ -129,7 +129,7 @@ export const TIMELINE_MILESTONES: TimelineMilestone[] = [
     description:
       'Armed with a state-of-the-art squad, deep community grassroots in South Goa, and an unwavering commitment to high-tempo football, Churchill Brothers march forward.',
     tag: 'Modern Legacy',
-    imageUrl: '/images/stadiums/fatorda_stadium.png',
+    imageUrl: '/images/stadium/fatorda-east-stand.jpg',
   },
 ];
 
@@ -139,10 +139,10 @@ export const VENUES: Venue[] = [
     name: 'Jawaharlal Nehru Stadium (Fatorda Stadium)',
     city: 'Margao, South Goa',
     capacity: 19000,
-    surface: 'Natural Bermuda Grass',
+    surface: 'Natural Bermuda Grass (105m × 68m)',
     description:
-      'The sacred fortress of Goan football and official home of Churchill Brothers FC. Located in Margao, it has witnessed the club’s championship triumphs.',
-    imageUrl: '/images/stadiums/fatorda_stadium.png',
+      'The sacred fortress of Goan football and official home of Churchill Brothers FC. Located in Margao, it has witnessed the club’s championship triumphs and AFC Cup fixtures.',
+    imageUrl: '/images/stadium/fatorda-east-stand.jpg',
     isHomeGround: true,
   },
   {
@@ -153,7 +153,7 @@ export const VENUES: Venue[] = [
     surface: 'Natural Grass',
     description:
       'Intimate coastal venue renowned for its passionate atmosphere, used regularly by Churchill Brothers for I-League and Goa Pro League fixtures.',
-    imageUrl: '/images/stadiums/tilak_maidan.png',
+    imageUrl: '/images/stadium/fatorda-real-matchday.jpg',
     isHomeGround: false,
   },
   {
@@ -164,7 +164,7 @@ export const VENUES: Venue[] = [
     surface: 'FIFA Quality Pro Artificial Turf',
     description:
       'Historical northern stadium frequented during renovations and state league matches.',
-    imageUrl: '/images/stadiums/fatorda_stadium.png',
+    imageUrl: '/images/stadium/fatorda-aerial-view.jpg',
     isHomeGround: false,
   },
 ];
