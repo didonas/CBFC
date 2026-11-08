@@ -50,27 +50,27 @@ export default function AdminInventoryPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-offWhite text-charcoal">
       <AdminHeader
         title="Demo Stock & Inventory Control"
         subtitle="Manage stock counts per product variant and replenish demonstration quantities."
       />
 
       <div className="p-6 sm:p-8 space-y-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-darkSurface p-4 rounded-2xl border border-zinc-800">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 border border-lightBorder shadow-card">
           <div className="relative w-full sm:w-80">
-            <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-mutedGrey absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search by SKU, product name, size..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-9 pr-4 py-2 text-xs text-white focus:outline-none focus:border-primary transition"
+              className="w-full bg-offWhite border border-lightBorder rounded pl-9 pr-4 py-2 text-xs text-charcoal focus:outline-none focus:border-primary transition"
             />
           </div>
 
           {feedback && (
-            <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+            <span className="text-xs text-emerald-700 font-semibold flex items-center gap-1">
               <CheckCircle className="w-3.5 h-3.5" />
               {feedback}
             </span>
@@ -78,11 +78,11 @@ export default function AdminInventoryPage() {
         </div>
 
         {/* Inventory Table */}
-        <div className="bg-darkSurface border border-zinc-800 rounded-2xl overflow-hidden shadow-card">
+        <div className="bg-white border border-lightBorder shadow-card overflow-hidden">
           <div className="overflow-x-auto text-xs">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-zinc-800 bg-zinc-950/60 text-zinc-400 font-display uppercase tracking-wider text-[11px]">
+                <tr className="border-b border-lightBorder bg-offWhite text-mutedGrey font-display uppercase tracking-wider text-[11px]">
                   <th className="py-3 px-4">Item & Product</th>
                   <th className="py-3 px-4">SKU</th>
                   <th className="py-3 px-4">Size</th>
@@ -91,22 +91,22 @@ export default function AdminInventoryPage() {
                   <th className="py-3 px-4 text-right">Quick Restock</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-850 text-zinc-300">
+              <tbody className="divide-y divide-lightBorder text-charcoal">
                 {filtered.map((item) => {
                   const isLow = item.stock < 15;
                   const isOut = item.stock <= 0;
                   return (
-                    <tr key={item.variantId} className="hover:bg-zinc-800/40 transition">
+                    <tr key={item.variantId} className="hover:bg-offWhite/60 transition">
                       <td className="py-3 px-4 flex items-center gap-3">
-                        <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-zinc-950 border border-zinc-800 shrink-0">
+                        <div className="relative w-10 h-10 rounded overflow-hidden bg-offWhite border border-lightBorder shrink-0">
                           <Image src={item.productImage} alt={item.productName} fill className="object-cover" />
                         </div>
-                        <span className="font-bold text-white max-w-xs truncate">{item.productName}</span>
+                        <span className="font-bold text-charcoal max-w-xs truncate">{item.productName}</span>
                       </td>
-                      <td className="py-3 px-4 font-mono text-zinc-400">
+                      <td className="py-3 px-4 font-mono text-mutedGrey">
                         {item.sku}
                       </td>
-                      <td className="py-3 px-4 font-bold text-brandGold text-sm">
+                      <td className="py-3 px-4 font-bold text-primary text-sm">
                         {item.size}
                       </td>
                       <td className="py-3 px-4">
@@ -116,23 +116,23 @@ export default function AdminInventoryPage() {
                             min={0}
                             value={item.stock}
                             onChange={(e) => handleStockChange(item.variantId, Number(e.target.value))}
-                            className="w-18 bg-zinc-950 border border-zinc-700 rounded-lg px-2.5 py-1 text-white font-mono font-bold text-xs focus:outline-none focus:border-primary"
+                            className="w-18 bg-offWhite border border-lightBorder rounded px-2.5 py-1 text-charcoal font-mono font-bold text-xs focus:outline-none focus:border-primary"
                           />
-                          <span className="text-zinc-500 text-[10px]">units</span>
+                          <span className="text-mutedGrey text-[10px]">units</span>
                         </div>
                       </td>
                       <td className="py-3 px-4">
                         {isOut ? (
-                          <span className="px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800 text-[10px] font-bold uppercase">
+                          <span className="px-2 py-0.5 rounded bg-red-50 text-red-700 border border-red-200 text-[10px] font-bold uppercase">
                             Out of Stock
                           </span>
                         ) : isLow ? (
-                          <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800 text-[10px] font-bold uppercase flex items-center gap-1 w-fit">
+                          <span className="px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-bold uppercase flex items-center gap-1 w-fit">
                             <AlertTriangle className="w-3 h-3" />
                             Low Stock
                           </span>
                         ) : (
-                          <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold uppercase">
+                          <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold uppercase">
                             Optimal
                           </span>
                         )}
@@ -140,13 +140,13 @@ export default function AdminInventoryPage() {
                       <td className="py-3 px-4 text-right space-x-1">
                         <button
                           onClick={() => handleStockChange(item.variantId, item.stock + 25)}
-                          className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-[11px] font-semibold transition"
+                          className="px-2.5 py-1 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal text-[11px] font-semibold transition"
                         >
                           +25 units
                         </button>
                         <button
                           onClick={() => handleStockChange(item.variantId, item.stock + 50)}
-                          className="px-2.5 py-1 rounded bg-primary/20 hover:bg-primary text-primary hover:text-white border border-primary/40 text-[11px] font-semibold transition"
+                          className="px-2.5 py-1 rounded bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/20 text-[11px] font-semibold transition"
                         >
                           +50 units
                         </button>

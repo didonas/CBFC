@@ -17,7 +17,6 @@ import {
   CheckCircle,
   Users,
   AlertCircle,
-  Info,
 } from 'lucide-react';
 
 function MatchTicketBookingContent() {
@@ -46,11 +45,11 @@ function MatchTicketBookingContent() {
   if (!match) {
     return (
       <div className="max-w-4xl mx-auto py-24 px-4 text-center space-y-4">
-        <h1 className="font-display font-black text-3xl text-white">Match Not Found</h1>
-        <p className="text-zinc-400 text-sm">The requested match is not available for booking.</p>
+        <h1 className="font-display font-black text-3xl text-charcoal">Match Not Found</h1>
+        <p className="text-mutedGrey text-sm">The requested match is not available for booking.</p>
         <Link
           href="/tickets"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold uppercase"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded bg-primary text-white text-xs font-bold uppercase"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Tickets</span>
@@ -133,12 +132,12 @@ function MatchTicketBookingContent() {
   });
 
   return (
-    <div className="space-y-10 py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-offWhite text-charcoal">
       {/* Return button */}
       <div>
         <Link
           href="/tickets"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-white transition"
+          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-mutedGrey hover:text-primary transition"
         >
           <ArrowLeft className="w-4 h-4 text-primary" />
           <span>Back to All Fixtures</span>
@@ -146,21 +145,21 @@ function MatchTicketBookingContent() {
       </div>
 
       {/* Match Summary Banner */}
-      <div className="bg-darkSurface border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white border border-lightBorder p-6 sm:p-8 shadow-card flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
-          <span className="text-xs font-display font-bold uppercase tracking-wider text-brandGold">
+          <span className="text-xs font-display font-bold uppercase tracking-wider text-primary">
             {match.competition}
           </span>
-          <h1 className="font-display font-black text-2xl sm:text-3xl text-white uppercase">
+          <h1 className="font-display font-black text-2xl sm:text-3xl text-charcoal uppercase">
             Churchill Brothers FC vs {match.opponentName}
           </h1>
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-zinc-300">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-charcoal font-medium">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-primary" />
               {formattedDate} • {formattedTime} IST
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-brandGold" />
+              <MapPin className="w-4 h-4 text-primary" />
               {match.venueName}
             </span>
           </div>
@@ -168,7 +167,7 @@ function MatchTicketBookingContent() {
 
         <div className="flex items-center gap-4 shrink-0">
           <ClubCrest size={48} />
-          <span className="font-display font-bold text-xl text-primary">VS</span>
+          <span className="font-display font-black text-xl text-primary">VS</span>
           <div className="relative w-12 h-12">
             <Image
               src={match.opponentCrestUrl}
@@ -181,13 +180,13 @@ function MatchTicketBookingContent() {
       </div>
 
       {/* Mandatory Demo Warning Alert */}
-      <div className="p-4 rounded-2xl bg-zinc-900 border border-primary/50 flex items-start gap-3.5 text-xs text-zinc-300">
-        <ShieldAlert className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-        <div className="space-y-1">
-          <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">
+      <div className="p-4 rounded bg-white border border-primary/30 flex items-start gap-3.5 text-xs text-charcoal shadow-card">
+        <ShieldAlert className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+        <div className="space-y-0.5">
+          <h4 className="font-bold text-primary uppercase tracking-wider text-[11px]">
             DEMO BOOKING — NO PAYMENT REQUIRED
           </h4>
-          <p className="text-zinc-400 leading-relaxed">
+          <p className="text-charcoal/70 leading-relaxed">
             This checkout simulates the entire booking lifecycle. No credit card, UPI or bank details are needed. All tickets generated contain unique QR codes and references stored in your browser session for testing.
           </p>
         </div>
@@ -197,10 +196,10 @@ function MatchTicketBookingContent() {
       <form onSubmit={handleBookingSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Form: Stand Selection & Customer details */}
         <div className="lg:col-span-7 space-y-6">
-          {/* Step 2: Category Selector */}
-          <div className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 space-y-4">
-            <h3 className="font-display font-bold text-lg text-white uppercase tracking-wider flex items-center gap-2">
-              <Ticket className="w-5 h-5 text-brandGold" />
+          {/* Step 1: Category Selector */}
+          <div className="bg-white border border-lightBorder p-6 shadow-card space-y-4">
+            <h3 className="font-display font-black text-lg text-charcoal uppercase tracking-wider flex items-center gap-2">
+              <Ticket className="w-5 h-5 text-primary" />
               <span>Step 1: Choose Stand / Ticket Category</span>
             </h3>
 
@@ -212,10 +211,10 @@ function MatchTicketBookingContent() {
                 return (
                   <label
                     key={cat.id}
-                    className={`block p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
+                    className={`block p-4 border transition-all duration-150 cursor-pointer ${
                       isSelected
-                        ? 'border-primary bg-zinc-900 shadow-club ring-1 ring-primary/40 -translate-y-0.5'
-                        : 'border-zinc-800 bg-zinc-950/70 hover:border-zinc-700'
+                        ? 'border-primary bg-offWhite shadow-xs'
+                        : 'border-lightBorder bg-white hover:border-zinc-400'
                     } ${isSoldOut ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     <div className="flex items-start justify-between gap-3">
@@ -230,30 +229,30 @@ function MatchTicketBookingContent() {
                           className="accent-primary w-4 h-4"
                         />
                         <div>
-                          <h4 className="font-display font-bold text-base text-white">
+                          <h4 className="font-display font-black text-lg text-charcoal">
                             {cat.name}
                           </h4>
-                          <span className="text-xs text-zinc-400 font-mono">
+                          <span className="text-xs text-primary font-bold uppercase tracking-wider block">
                             {cat.gateEntry}
                           </span>
                         </div>
                       </div>
 
                       <div className="text-right">
-                        <span className="font-display font-black text-xl text-white">
+                        <span className="font-display font-black text-xl text-charcoal">
                           ₹{cat.priceInr}
                         </span>
-                        <span className="text-[10px] text-zinc-500 uppercase block">
+                        <span className="text-[10px] text-mutedGrey uppercase block font-semibold">
                           Per Demo Seat
                         </span>
                       </div>
                     </div>
 
-                    <p className="mt-2 text-xs text-zinc-400 pl-7">
+                    <p className="mt-2 text-xs text-charcoal/70 pl-7 leading-relaxed">
                       {cat.description}
                     </p>
 
-                    <div className="mt-2 text-[11px] font-semibold text-emerald-400 pl-7">
+                    <div className="mt-2 text-[11px] font-bold text-primary pl-7">
                       {cat.demoAvailable > 0
                         ? `${cat.demoAvailable} demo seats remaining`
                         : 'Sold out in demo inventory'}
@@ -264,49 +263,49 @@ function MatchTicketBookingContent() {
             </div>
           </div>
 
-          {/* Step 3: Quantity Selector */}
-          <div className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 space-y-4">
-            <h3 className="font-display font-bold text-lg text-white uppercase tracking-wider flex items-center gap-2">
+          {/* Step 2: Quantity Selector */}
+          <div className="bg-white border border-lightBorder p-6 shadow-card space-y-4">
+            <h3 className="font-display font-black text-lg text-charcoal uppercase tracking-wider flex items-center gap-2">
               <Users className="w-5 h-5 text-primary" />
               <span>Step 2: Number of Seats</span>
             </h3>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center border border-zinc-700 rounded-xl bg-zinc-950 overflow-hidden">
+              <div className="flex items-center border border-lightBorder bg-offWhite overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-4 py-2.5 text-zinc-300 hover:text-white hover:bg-zinc-850 active:scale-90 transition font-bold"
+                  className="px-4 py-2.5 text-charcoal hover:bg-zinc-200 active:scale-95 transition font-bold"
                 >
                   -
                 </button>
-                <span className="px-5 py-2 font-display font-black text-lg text-white">
+                <span className="px-5 py-2 font-display font-black text-lg text-charcoal">
                   {quantity}
                 </span>
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.min(10, Math.min(availableStock, quantity + 1)))}
-                  className="px-4 py-2.5 text-zinc-300 hover:text-white hover:bg-zinc-850 active:scale-90 transition font-bold"
+                  className="px-4 py-2.5 text-charcoal hover:bg-zinc-200 active:scale-95 transition font-bold"
                 >
                   +
                 </button>
               </div>
 
-              <span className="text-xs text-zinc-400">
+              <span className="text-xs text-mutedGrey font-medium">
                 (Max 10 demo tickets per simulated booking)
               </span>
             </div>
           </div>
 
-          {/* Step 4: Customer Details */}
-          <div className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 space-y-4">
-            <h3 className="font-display font-bold text-lg text-white uppercase tracking-wider">
+          {/* Step 3: Customer Details */}
+          <div className="bg-white border border-lightBorder p-6 shadow-card space-y-4">
+            <h3 className="font-display font-black text-lg text-charcoal uppercase tracking-wider">
               Step 3: Demonstration Ticket Holder Details
             </h3>
 
             <div className="space-y-4 text-xs">
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">
+                <label className="block text-charcoal font-bold mb-1">
                   Primary Ticket Holder Full Name *
                 </label>
                 <input
@@ -314,14 +313,14 @@ function MatchTicketBookingContent() {
                   required
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary transition"
+                  className="w-full bg-offWhite border border-lightBorder px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary transition font-medium"
                   placeholder="e.g. Antonio D'Souza"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">
+                  <label className="block text-charcoal font-bold mb-1">
                     Email Address *
                   </label>
                   <input
@@ -329,19 +328,19 @@ function MatchTicketBookingContent() {
                     required
                     value={customerEmail}
                     onChange={(e) => setCustomerEmail(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary transition"
+                    className="w-full bg-offWhite border border-lightBorder px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary transition font-medium"
                     placeholder="e.g. fan@churchillbrothers.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">
+                  <label className="block text-charcoal font-bold mb-1">
                     Mobile Number
                   </label>
                   <input
                     type="tel"
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary transition"
+                    className="w-full bg-offWhite border border-lightBorder px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary transition font-medium"
                     placeholder="e.g. +91 98221 54321"
                   />
                 </div>
@@ -351,45 +350,45 @@ function MatchTicketBookingContent() {
         </div>
 
         {/* Right Summary Card & Confirm */}
-        <div className="lg:col-span-5 bg-darkSurface border border-zinc-800 rounded-3xl p-6 sm:p-8 space-y-6 sticky top-28 shadow-2xl">
-          <h3 className="font-display font-black text-xl text-white uppercase tracking-wider border-b border-zinc-800 pb-3">
+        <div className="lg:col-span-5 bg-white border border-lightBorder p-6 sm:p-8 space-y-6 sticky top-28 shadow-card">
+          <h3 className="font-display font-black text-xl text-charcoal uppercase tracking-wider border-b border-lightBorder pb-3">
             Simulated Order Summary
           </h3>
 
           <div className="space-y-3 text-xs">
-            <div className="flex justify-between text-zinc-400">
+            <div className="flex justify-between text-mutedGrey">
               <span>Fixture:</span>
-              <span className="font-bold text-white text-right max-w-[180px] truncate">
+              <span className="font-bold text-charcoal text-right max-w-[200px] truncate">
                 CBFC vs {match.opponentName}
               </span>
             </div>
-            <div className="flex justify-between text-zinc-400">
+            <div className="flex justify-between text-mutedGrey">
               <span>Stand Category:</span>
-              <span className="font-bold text-brandGold">{selectedCategory?.name}</span>
+              <span className="font-bold text-primary">{selectedCategory?.name}</span>
             </div>
-            <div className="flex justify-between text-zinc-400">
+            <div className="flex justify-between text-mutedGrey">
               <span>Quantity:</span>
-              <span className="font-bold text-white">{quantity} seat(s)</span>
+              <span className="font-bold text-charcoal">{quantity} seat(s)</span>
             </div>
-            <div className="flex justify-between text-zinc-400">
+            <div className="flex justify-between text-mutedGrey">
               <span>Demo Price:</span>
-              <span className="font-mono">₹{unitPrice} x {quantity}</span>
+              <span className="font-mono text-charcoal">₹{unitPrice} x {quantity}</span>
             </div>
 
-            <div className="pt-3 border-t border-zinc-800 flex justify-between items-baseline">
-              <span className="text-sm font-bold text-white uppercase">Demo Total:</span>
+            <div className="pt-3 border-t border-lightBorder flex justify-between items-baseline">
+              <span className="text-sm font-bold text-charcoal uppercase">Demo Total:</span>
               <span className="font-display font-black text-2xl text-primary">
                 ₹{totalAmount.toLocaleString('en-IN')}
               </span>
             </div>
-            <span className="text-[10px] text-zinc-500 italic block">
+            <span className="text-[10px] text-mutedGrey italic block">
               * Simulated value. Zero charges will be made.
             </span>
           </div>
 
           {errorMessage && (
-            <div className="p-3 rounded-xl bg-red-950/80 border border-red-800 text-red-200 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0" />
+            <div className="p-3 rounded bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
               <span>{errorMessage}</span>
             </div>
           )}
@@ -398,7 +397,7 @@ function MatchTicketBookingContent() {
           <button
             type="submit"
             disabled={isSubmitting || availableStock <= 0}
-            className="w-full py-4 rounded-xl bg-primary hover:bg-deepRed disabled:bg-zinc-800 disabled:text-zinc-600 text-white font-display font-black text-sm uppercase tracking-widest transition shadow-club flex items-center justify-center gap-2"
+            className="w-full py-4 rounded bg-primary hover:bg-deepRed disabled:bg-zinc-200 disabled:text-zinc-500 text-white font-display font-black text-sm uppercase tracking-widest transition shadow-sm flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
               <span>GENERATING DEMO PASSES...</span>
@@ -410,7 +409,7 @@ function MatchTicketBookingContent() {
             )}
           </button>
 
-          <p className="text-[10px] text-zinc-500 text-center leading-relaxed">
+          <p className="text-[10px] text-mutedGrey text-center leading-relaxed">
             By confirming, simulated ticket records and QR code tokens will be created in your account. No banking credentials requested.
           </p>
         </div>
@@ -421,7 +420,7 @@ function MatchTicketBookingContent() {
 
 export default function MatchTicketBookingPage() {
   return (
-    <Suspense fallback={<div className="max-w-5xl mx-auto py-20 px-4 text-center text-zinc-400">Loading booking form...</div>}>
+    <Suspense fallback={<div className="max-w-5xl mx-auto py-20 px-4 text-center text-mutedGrey">Loading booking form...</div>}>
       <MatchTicketBookingContent />
     </Suspense>
   );

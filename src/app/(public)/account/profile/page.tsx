@@ -25,29 +25,29 @@ export default function AccountProfilePage() {
       <div>
         <Link
           href="/account"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-white transition"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-mutedGrey hover:text-charcoal transition"
         >
           <ArrowLeft className="w-4 h-4 text-primary" />
           <span>Back to Account Overview</span>
         </Link>
       </div>
 
-      <div className="border-b border-zinc-800 pb-6">
-        <span className="text-xs font-display font-bold text-brandGold tracking-widest uppercase">
+      <div className="border-b border-lightBorder pb-6">
+        <span className="text-xs font-display font-bold text-primary tracking-widest uppercase">
           SUPPORTER SETTINGS
         </span>
-        <h1 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight mt-1">
+        <h1 className="font-display font-black text-3xl sm:text-4xl text-charcoal uppercase tracking-tight mt-1">
           PROFILE MANAGEMENT
         </h1>
       </div>
 
       <form
         onSubmit={handleSave}
-        className="bg-darkSurface border border-zinc-800 rounded-3xl p-6 sm:p-10 space-y-6 text-xs shadow-2xl"
+        className="bg-white border border-lightBorder shadow-card p-6 sm:p-10 space-y-6 text-xs"
       >
         <div className="space-y-4">
           <div>
-            <label className="block text-zinc-400 font-semibold mb-1">
+            <label className="block text-charcoal font-semibold mb-1">
               Full Name *
             </label>
             <input
@@ -55,13 +55,13 @@ export default function AccountProfilePage() {
               required
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary transition"
+              className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary transition"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-zinc-400 font-semibold mb-1">
+              <label className="block text-charcoal font-semibold mb-1">
                 Email Address *
               </label>
               <input
@@ -69,37 +69,37 @@ export default function AccountProfilePage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary transition"
+                className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary transition"
               />
             </div>
             <div>
-              <label className="block text-zinc-400 font-semibold mb-1">
+              <label className="block text-charcoal font-semibold mb-1">
                 Phone Number
               </label>
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary transition"
+                className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary transition"
               />
             </div>
           </div>
         </div>
 
         {savedMessage && (
-          <div className="p-3 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-200 text-xs flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-emerald-400" />
+          <div className="p-3 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+            <CheckCircle className="w-4 h-4 text-emerald-600" />
             <span>Profile details updated successfully!</span>
           </div>
         )}
 
-        <div className="pt-4 border-t border-zinc-800 flex justify-end">
+        <div className="pt-4 border-t border-lightBorder flex justify-end">
           <button
             type="submit"
-            className="px-6 py-3 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-club flex items-center gap-2"
+            className="px-6 py-3 rounded bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2"
           >
             <Save className="w-4 h-4" />
-            <span>SAVE PROFILE CHANGES</span>
+            <span>Save Profile Changes</span>
           </button>
         </div>
       </form>

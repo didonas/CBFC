@@ -9,7 +9,7 @@ export default function AdminLayout({
 }) {
   return (
     <AdminRouteGuard>
-      <div className="min-h-screen flex bg-brandBlack text-zinc-100">
+      <div className="min-h-screen flex bg-offWhite text-charcoal">
         <AdminSidebar />
         <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
           {children}

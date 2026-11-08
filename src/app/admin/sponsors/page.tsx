@@ -67,21 +67,21 @@ export default function AdminSponsorsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-offWhite text-charcoal">
       <AdminHeader
         title="Commercial Partners & Sponsors"
         subtitle="Manage principal club sponsors, technical equipment suppliers and associate brands."
       />
 
       <div className="p-6 sm:p-8 space-y-6">
-        <div className="flex items-center justify-between bg-darkSurface p-4 rounded-2xl border border-zinc-800">
-          <span className="text-xs text-zinc-400 font-semibold">
-            Active Partners: <strong className="text-white">{sponsorsList.length} partners</strong>
+        <div className="flex items-center justify-between bg-white p-4 border border-lightBorder shadow-card">
+          <span className="text-xs text-mutedGrey font-semibold">
+            Active Partners: <strong className="text-charcoal">{sponsorsList.length} partners</strong>
           </span>
 
           <button
             onClick={openAddModal}
-            className="px-5 py-2.5 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-club flex items-center gap-2"
+            className="px-5 py-2.5 rounded bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
             <span>Add Partner</span>
@@ -92,47 +92,47 @@ export default function AdminSponsorsPage() {
           {sponsorsList.map((sp) => (
             <div
               key={sp.id}
-              className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 shadow-card flex flex-col justify-between space-y-4"
+              className="bg-white border border-lightBorder shadow-card p-6 flex flex-col justify-between space-y-4"
             >
               <div>
-                <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
-                  <span className="text-[10px] uppercase font-bold text-brandGold px-2 py-0.5 rounded bg-zinc-900 border border-zinc-750">
+                <div className="flex items-center justify-between pb-3 border-b border-lightBorder">
+                  <span className="text-[10px] uppercase font-bold text-primary px-2 py-0.5 rounded bg-offWhite border border-lightBorder">
                     {sp.tier}
                   </span>
                   <div className="flex items-center gap-1.5">
                     <button
                       onClick={() => openEditModal(sp)}
-                      className="p-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300"
+                      className="p-1.5 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal"
                     >
                       <Edit2 className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => handleDelete(sp.id)}
-                      className="p-1.5 rounded bg-zinc-800 hover:bg-red-900/60 text-red-300"
+                      className="p-1.5 rounded bg-offWhite hover:bg-red-50 border border-lightBorder text-red-600"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
 
-                <div className="relative w-full h-16 bg-zinc-950 rounded-xl p-2 border border-zinc-800 mt-3">
+                <div className="relative w-full h-16 bg-offWhite rounded p-2 border border-lightBorder mt-3">
                   <Image src={sp.logoUrl} alt={sp.name} fill className="object-contain p-2" />
                 </div>
 
-                <h3 className="font-display font-black text-xl text-white uppercase mt-4">
+                <h3 className="font-display font-black text-xl text-charcoal uppercase mt-4">
                   {sp.name}
                 </h3>
-                <p className="mt-2 text-xs text-zinc-400 leading-relaxed">
+                <p className="mt-2 text-xs text-mutedGrey leading-relaxed">
                   {sp.description}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-zinc-800">
+              <div className="pt-3 border-t border-lightBorder">
                 <a
                   href={sp.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-brandGold font-semibold hover:underline inline-flex items-center gap-1"
+                  className="text-xs text-primary font-bold hover:underline inline-flex items-center gap-1"
                 >
                   <span>Visit Website</span>
                   <ExternalLink className="w-3 h-3" />
@@ -144,35 +144,35 @@ export default function AdminSponsorsPage() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-darkSurface border border-zinc-700 rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-5 animate-in fade-in duration-200">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-              <h3 className="font-display font-black text-xl text-white uppercase">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-lightBorder shadow-2xl max-w-md w-full p-6 sm:p-8 space-y-5 animate-in fade-in duration-200">
+            <div className="flex items-center justify-between border-b border-lightBorder pb-3">
+              <h3 className="font-display font-black text-xl text-charcoal uppercase">
                 {editingSponsor ? 'Edit Partner' : 'Add Partner'}
               </h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-zinc-400 hover:text-white">
+              <button onClick={() => setIsModalOpen(false)} className="text-mutedGrey hover:text-charcoal">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleSave} className="space-y-4 text-xs">
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Company / Partner Name *</label>
+                <label className="block text-charcoal font-semibold mb-1">Company / Partner Name *</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Partnership Tier</label>
+                <label className="block text-charcoal font-semibold mb-1">Partnership Tier</label>
                 <select
                   value={tier}
                   onChange={(e) => setTier(e.target.value as any)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                 >
                   <option value="Principal">Principal Partner</option>
                   <option value="Kit Manufacturer">Kit Manufacturer</option>
@@ -182,47 +182,47 @@ export default function AdminSponsorsPage() {
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Logo URL</label>
+                <label className="block text-charcoal font-semibold mb-1">Logo URL</label>
                 <input
                   type="text"
                   required
                   value={logoUrl}
                   onChange={(e) => setLogoUrl(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary font-mono text-[11px]"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary font-mono text-[11px]"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Website URL</label>
+                <label className="block text-charcoal font-semibold mb-1">Website URL</label>
                 <input
                   type="url"
                   value={websiteUrl}
                   onChange={(e) => setWebsiteUrl(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary font-mono text-[11px]"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary font-mono text-[11px]"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Description</label>
+                <label className="block text-charcoal font-semibold mb-1">Description</label>
                 <textarea
                   rows={2}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                 />
               </div>
 
-              <div className="pt-4 border-t border-zinc-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-lightBorder flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-zinc-800 text-zinc-300"
+                  className="px-4 py-2 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold uppercase tracking-wider"
+                  className="px-5 py-2 rounded bg-primary hover:bg-deepRed text-white font-display font-bold uppercase tracking-wider"
                 >
                   Save Partner
                 </button>

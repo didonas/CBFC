@@ -8,10 +8,7 @@ import { QRDemoTicket } from '@/components/ui/QRDemoTicket';
 import {
   CheckCircle,
   ShieldAlert,
-  Calendar,
-  MapPin,
   ArrowRight,
-  User,
   QrCode,
   Ticket,
 } from 'lucide-react';
@@ -26,11 +23,11 @@ export default function TicketConfirmationPage() {
   if (!booking) {
     return (
       <div className="max-w-4xl mx-auto py-24 px-4 text-center space-y-4">
-        <h1 className="font-display font-black text-3xl text-white">Booking Record Not Found</h1>
-        <p className="text-zinc-400 text-sm">We could not locate this demo booking reference.</p>
+        <h1 className="font-display font-black text-3xl text-charcoal">Booking Record Not Found</h1>
+        <p className="text-mutedGrey text-sm">We could not locate this demo booking reference.</p>
         <Link
           href="/tickets"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold uppercase"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded bg-primary text-white text-xs font-bold uppercase"
         >
           <span>Browse Tickets</span>
         </Link>
@@ -39,42 +36,42 @@ export default function TicketConfirmationPage() {
   }
 
   return (
-    <div className="space-y-10 py-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-offWhite text-charcoal">
       {/* Success Banner */}
-      <div className="bg-gradient-to-r from-emerald-950/40 via-darkSurface to-emerald-950/40 border border-emerald-500/50 rounded-3xl p-6 sm:p-8 text-center space-y-3 shadow-2xl">
-        <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
+      <div className="bg-white border border-lightBorder p-8 sm:p-10 text-center space-y-3 shadow-card">
+        <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto">
           <CheckCircle className="w-8 h-8" />
         </div>
 
-        <span className="text-xs font-display font-bold uppercase tracking-widest text-emerald-400 block">
+        <span className="text-xs font-display font-bold uppercase tracking-widest text-emerald-600 block">
           SIMULATED TRANSACTION SUCCESSFUL
         </span>
 
-        <h1 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
+        <h1 className="font-display font-black text-3xl sm:text-4xl text-charcoal uppercase tracking-tight">
           DEMO BOOKING CONFIRMED!
         </h1>
 
-        <p className="text-sm text-zinc-300 max-w-md mx-auto">
+        <p className="text-sm text-charcoal/80 max-w-md mx-auto">
           Your reservation is recorded. Booking Reference:{' '}
-          <span className="font-mono font-bold text-brandGold">{booking.bookingReference}</span>
+          <span className="font-mono font-bold text-primary">{booking.bookingReference}</span>
         </p>
 
         {/* Prominent Demo Notice */}
-        <div className="mt-4 p-3.5 bg-black/40 rounded-xl border border-primary/40 inline-flex items-center gap-2 text-xs text-zinc-300 max-w-lg">
+        <div className="mt-4 p-3.5 bg-offWhite rounded border border-primary/30 inline-flex items-center gap-2 text-xs text-charcoal max-w-lg">
           <ShieldAlert className="w-5 h-5 text-primary shrink-0" />
           <span className="text-left leading-relaxed">
-            <strong className="text-white">DEMO NOTICE:</strong> No real payment was processed. These passes are for digital evaluation and cannot be used for genuine stadium entry.
+            <strong className="text-primary font-bold">DEMO NOTICE:</strong> No real payment was processed. These passes are for digital evaluation and cannot be used for genuine stadium entry.
           </span>
         </div>
       </div>
 
       {/* Admin QR Scanner Testing Banner */}
-      <div className="bg-zinc-900 border border-brandGold/40 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-white border border-lightBorder p-5 shadow-card flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <QrCode className="w-6 h-6 text-brandGold shrink-0" />
+          <QrCode className="w-6 h-6 text-primary shrink-0" />
           <div className="text-xs">
-            <span className="font-bold text-white block">TEST QR SCANNER IN ADMIN PORTAL</span>
-            <span className="text-zinc-400">
+            <span className="font-bold text-charcoal block">TEST QR SCANNER IN ADMIN PORTAL</span>
+            <span className="text-mutedGrey">
               Open the Turnstile Scanner to verify ticket {booking.tickets[0]?.ticketNumber}.
             </span>
           </div>
@@ -82,7 +79,7 @@ export default function TicketConfirmationPage() {
 
         <Link
           href={`/admin/bookings?scan=${booking.tickets[0]?.ticketNumber}`}
-          className="px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-white transition shrink-0"
+          className="px-4 py-2 rounded bg-offWhite hover:bg-zinc-100 border border-lightBorder text-xs font-bold uppercase tracking-wider text-charcoal transition shrink-0"
         >
           Open Admin Scanner →
         </Link>
@@ -91,14 +88,14 @@ export default function TicketConfirmationPage() {
       {/* Render Individual Digital QR Passes */}
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="font-display font-black text-2xl text-white uppercase tracking-wider flex items-center gap-2">
+          <h2 className="font-display font-black text-2xl text-charcoal uppercase tracking-wider flex items-center gap-2">
             <Ticket className="w-5 h-5 text-primary" />
             <span>Digital Passes ({booking.tickets.length})</span>
           </h2>
 
           <Link
             href="/account/tickets"
-            className="text-xs text-brandGold hover:underline font-semibold"
+            className="text-xs text-primary hover:underline font-bold uppercase tracking-wider"
           >
             View in My Account →
           </Link>
@@ -119,20 +116,20 @@ export default function TicketConfirmationPage() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="pt-6 border-t border-lightBorder flex flex-col sm:flex-row items-center justify-between gap-4">
         <Link
           href="/tickets"
-          className="text-xs font-semibold text-zinc-400 hover:text-white"
+          className="text-xs font-bold uppercase tracking-wider text-mutedGrey hover:text-primary"
         >
           ← Browse Other Sample Fixtures
         </Link>
 
         <Link
           href="/shop"
-          className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-display font-bold text-xs uppercase tracking-wider transition flex items-center gap-2"
+          className="px-6 py-3 rounded bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-sm"
         >
           <span>Visit Official Merchandise Store</span>
-          <ArrowRight className="w-4 h-4 text-brandGold" />
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

@@ -9,7 +9,7 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-brandBlack">
+    <div className="min-h-screen flex flex-col justify-between bg-offWhite text-charcoal">
       <div>
         <AnnouncementBar />
         <SiteHeader />

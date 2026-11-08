@@ -85,21 +85,21 @@ export default function AdminMatchesPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-offWhite text-charcoal">
       <AdminHeader
         title="Match Schedule & Results Management"
         subtitle="Schedule upcoming fixtures, manage scorelines, update match reports and gate ticketing."
       />
 
       <div className="p-6 sm:p-8 space-y-6">
-        <div className="flex items-center justify-between bg-darkSurface p-4 rounded-2xl border border-zinc-800">
-          <span className="text-xs text-zinc-400 font-semibold">
-            Scheduled Matches: <strong className="text-white">{matches.length} fixtures</strong>
+        <div className="flex items-center justify-between bg-white p-4 border border-lightBorder shadow-card">
+          <span className="text-xs text-mutedGrey font-semibold">
+            Scheduled Matches: <strong className="text-charcoal">{matches.length} fixtures</strong>
           </span>
 
           <button
             onClick={openAddModal}
-            className="px-5 py-2.5 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-club flex items-center gap-2"
+            className="px-5 py-2.5 rounded bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
             <span>Schedule New Fixture</span>
@@ -107,11 +107,11 @@ export default function AdminMatchesPage() {
         </div>
 
         {/* Matches Table */}
-        <div className="bg-darkSurface border border-zinc-800 rounded-2xl overflow-hidden shadow-card">
+        <div className="bg-white border border-lightBorder shadow-card overflow-hidden">
           <div className="overflow-x-auto text-xs">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-zinc-800 bg-zinc-950/60 text-zinc-400 font-display uppercase tracking-wider text-[11px]">
+                <tr className="border-b border-lightBorder bg-offWhite text-mutedGrey font-display uppercase tracking-wider text-[11px]">
                   <th className="py-3 px-4">Fixture</th>
                   <th className="py-3 px-4">Competition</th>
                   <th className="py-3 px-4">Date & Time</th>
@@ -121,52 +121,52 @@ export default function AdminMatchesPage() {
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-850 text-zinc-300">
+              <tbody className="divide-y divide-lightBorder text-charcoal">
                 {matches.map((m) => (
-                  <tr key={m.id} className="hover:bg-zinc-800/40 transition">
+                  <tr key={m.id} className="hover:bg-offWhite/60 transition">
                     <td className="py-3 px-4">
-                      <span className="font-bold text-white block">
+                      <span className="font-bold text-charcoal block">
                         Churchill Bros vs {m.opponentName}
                       </span>
-                      <span className="text-[10px] text-zinc-500 font-mono">
+                      <span className="text-[10px] text-mutedGrey font-mono">
                         {m.isHomeMatch ? 'Home Match' : 'Away Match'}
                       </span>
                     </td>
-                    <td className="py-3 px-4 font-semibold text-brandGold">
+                    <td className="py-3 px-4 font-semibold text-primary">
                       {m.competition}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-4 text-mutedGrey">
                       {new Date(m.matchDate).toLocaleDateString('en-IN', {
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric',
                       })} • {new Date(m.matchDate).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
                     </td>
-                    <td className="py-3 px-4 truncate max-w-[150px]">
+                    <td className="py-3 px-4 truncate max-w-[150px] text-mutedGrey">
                       {m.venueName}
                     </td>
                     <td className="py-3 px-4">
                       {m.status === 'completed' ? (
-                        <span className="font-display font-bold text-white text-sm">
+                        <span className="font-display font-bold text-charcoal text-sm">
                           {m.homeScore} - {m.awayScore} (FT)
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-bold uppercase text-[10px]">
+                        <span className="px-2 py-0.5 rounded bg-offWhite border border-lightBorder text-charcoal font-bold uppercase text-[10px]">
                           {m.status}
                         </span>
                       )}
                     </td>
                     <td className="py-3 px-4">
                       {m.isTicketsAvailable ? (
-                        <span className="text-emerald-400 font-bold">Live Demo</span>
+                        <span className="text-emerald-700 font-bold">Live Demo</span>
                       ) : (
-                        <span className="text-zinc-500">Disabled</span>
+                        <span className="text-mutedGrey">Disabled</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-right space-x-2">
                       <button
                         onClick={() => openEditModal(m)}
-                        className="p-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition"
+                        className="p-1.5 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal transition"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
@@ -174,7 +174,7 @@ export default function AdminMatchesPage() {
                         onClick={() => {
                           if (confirm(`Delete fixture vs ${m.opponentName}?`)) deleteMatch(m.id);
                         }}
-                        className="p-1.5 rounded bg-zinc-800 hover:bg-red-900/60 text-red-300 transition"
+                        className="p-1.5 rounded bg-offWhite hover:bg-red-50 border border-lightBorder text-red-600 transition"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
@@ -189,13 +189,13 @@ export default function AdminMatchesPage() {
 
       {/* Edit Match Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-darkSurface border border-zinc-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5 animate-in fade-in duration-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-              <h3 className="font-display font-black text-xl text-white uppercase">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-lightBorder shadow-2xl max-w-lg w-full p-6 sm:p-8 space-y-5 animate-in fade-in duration-200 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-lightBorder pb-3">
+              <h3 className="font-display font-black text-xl text-charcoal uppercase">
                 {editingMatch ? 'Edit Match & Result' : 'Schedule Fixture'}
               </h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-zinc-400 hover:text-white">
+              <button onClick={() => setIsModalOpen(false)} className="text-mutedGrey hover:text-charcoal">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -203,57 +203,57 @@ export default function AdminMatchesPage() {
             <form onSubmit={handleSave} className="space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Opponent Club *</label>
+                  <label className="block text-charcoal font-semibold mb-1">Opponent Club *</label>
                   <input
                     type="text"
                     required
                     value={opponentName}
                     onChange={(e) => setOpponentName(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   />
                 </div>
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Competition *</label>
+                  <label className="block text-charcoal font-semibold mb-1">Competition *</label>
                   <input
                     type="text"
                     required
                     value={competition}
                     onChange={(e) => setCompetition(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Match Date & Kickoff *</label>
+                  <label className="block text-charcoal font-semibold mb-1">Match Date & Kickoff *</label>
                   <input
                     type="datetime-local"
                     required
                     value={matchDate}
                     onChange={(e) => setMatchDate(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   />
                 </div>
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Venue Name *</label>
+                  <label className="block text-charcoal font-semibold mb-1">Venue Name *</label>
                   <input
                     type="text"
                     required
                     value={venueName}
                     onChange={(e) => setVenueName(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+              <div className="grid grid-cols-3 gap-4 bg-offWhite p-4 border border-lightBorder">
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Status</label>
+                  <label className="block text-charcoal font-semibold mb-1">Status</label>
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value as MatchStatus)}
-                    className="w-full bg-darkSurface border border-zinc-700 rounded-lg px-2 py-1.5 text-white text-xs"
+                    className="w-full bg-white border border-lightBorder rounded px-2 py-1.5 text-charcoal text-xs"
                   >
                     <option value="scheduled">Scheduled</option>
                     <option value="completed">Completed</option>
@@ -263,41 +263,41 @@ export default function AdminMatchesPage() {
                 </div>
 
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Home Score</label>
+                  <label className="block text-charcoal font-semibold mb-1">Home Score</label>
                   <input
                     type="number"
                     min={0}
                     value={homeScore}
                     onChange={(e) => setHomeScore(Number(e.target.value))}
-                    className="w-full bg-darkSurface border border-zinc-700 rounded-lg px-2 py-1.5 text-white text-xs"
+                    className="w-full bg-white border border-lightBorder rounded px-2 py-1.5 text-charcoal text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Away Score</label>
+                  <label className="block text-charcoal font-semibold mb-1">Away Score</label>
                   <input
                     type="number"
                     min={0}
                     value={awayScore}
                     onChange={(e) => setAwayScore(Number(e.target.value))}
-                    className="w-full bg-darkSurface border border-zinc-700 rounded-lg px-2 py-1.5 text-white text-xs"
+                    className="w-full bg-white border border-lightBorder rounded px-2 py-1.5 text-charcoal text-xs"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Match Report</label>
+                <label className="block text-charcoal font-semibold mb-1">Match Report</label>
                 <textarea
                   rows={3}
                   value={matchReport}
                   onChange={(e) => setMatchReport(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   placeholder="Summary of goals, highlights, and team performance..."
                 />
               </div>
 
               <div className="flex items-center gap-6 pt-2">
-                <label className="flex items-center gap-2 cursor-pointer text-zinc-300">
+                <label className="flex items-center gap-2 cursor-pointer text-charcoal">
                   <input
                     type="checkbox"
                     checked={isHomeMatch}
@@ -306,7 +306,7 @@ export default function AdminMatchesPage() {
                   />
                   <span>Is Home Match (Fatorda)</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer text-brandGold font-semibold">
+                <label className="flex items-center gap-2 cursor-pointer text-primary font-semibold">
                   <input
                     type="checkbox"
                     checked={isTicketsAvailable}
@@ -317,17 +317,17 @@ export default function AdminMatchesPage() {
                 </label>
               </div>
 
-              <div className="pt-4 border-t border-zinc-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-lightBorder flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-zinc-800 text-zinc-300"
+                  className="px-4 py-2 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold uppercase tracking-wider"
+                  className="px-5 py-2 rounded bg-primary hover:bg-deepRed text-white font-display font-bold uppercase tracking-wider"
                 >
                   Save Fixture
                 </button>

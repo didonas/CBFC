@@ -48,7 +48,7 @@ export default function AdminDashboardPage() {
   const recentOrders = orders.slice(0, 5);
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-offWhite text-charcoal">
       <AdminHeader
         title="Club Administration Overview"
         subtitle="Real-time monitoring of simulated ticketing, e-commerce orders, inventory and club operations."
@@ -97,17 +97,17 @@ export default function AdminDashboardPage() {
         {/* Middle Two-Column Grid: Recent Bookings & Orders */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Recent Bookings */}
-          <div className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 shadow-card space-y-4">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+          <div className="bg-white border border-lightBorder shadow-card p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-lightBorder pb-3">
               <div className="flex items-center gap-2">
                 <Ticket className="w-5 h-5 text-primary" />
-                <h2 className="font-display font-bold text-lg text-white uppercase">
+                <h2 className="font-display font-bold text-lg text-charcoal uppercase">
                   Recent Ticket Bookings
                 </h2>
               </div>
               <Link
                 href="/admin/bookings"
-                className="text-xs text-brandGold hover:underline font-semibold flex items-center gap-1"
+                className="text-xs text-primary hover:underline font-bold flex items-center gap-1"
               >
                 <span>View All & Scan QR</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -115,7 +115,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {recentBookings.length === 0 ? (
-              <div className="py-8 text-center text-xs text-zinc-500">
+              <div className="py-8 text-center text-xs text-mutedGrey">
                 No demo ticket bookings recorded yet.
               </div>
             ) : (
@@ -123,13 +123,13 @@ export default function AdminDashboardPage() {
                 {recentBookings.map((b) => (
                   <div
                     key={b.id}
-                    className="flex items-center justify-between p-3 rounded-xl bg-zinc-950 border border-zinc-850 text-xs"
+                    className="flex items-center justify-between p-3 bg-offWhite border border-lightBorder text-xs"
                   >
                     <div>
-                      <span className="font-mono font-bold text-white block">
+                      <span className="font-mono font-bold text-charcoal block">
                         {b.bookingReference}
                       </span>
-                      <span className="text-zinc-400">
+                      <span className="text-mutedGrey">
                         {b.customerName} • {b.quantity} seat(s) ({b.ticketCategoryName})
                       </span>
                     </div>
@@ -138,13 +138,13 @@ export default function AdminDashboardPage() {
                       <span
                         className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase ${
                           b.bookingStatus === 'confirmed'
-                            ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
-                            : 'bg-red-950 text-red-400 border border-red-800'
+                            ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                            : 'bg-red-50 text-red-700 border border-red-200'
                         }`}
                       >
                         {b.bookingStatus}
                       </span>
-                      <span className="text-zinc-400 text-[11px] block mt-1">
+                      <span className="text-mutedGrey text-[11px] block mt-1">
                         ₹{b.totalAmountInr}
                       </span>
                     </div>
@@ -155,17 +155,17 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Recent Demo Orders */}
-          <div className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 shadow-card space-y-4">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+          <div className="bg-white border border-lightBorder shadow-card p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-lightBorder pb-3">
               <div className="flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 text-brandGold" />
-                <h2 className="font-display font-bold text-lg text-white uppercase">
+                <ShoppingBag className="w-5 h-5 text-primary" />
+                <h2 className="font-display font-bold text-lg text-charcoal uppercase">
                   Recent Merchandise Orders
                 </h2>
               </div>
               <Link
                 href="/admin/orders"
-                className="text-xs text-brandGold hover:underline font-semibold flex items-center gap-1"
+                className="text-xs text-primary hover:underline font-bold flex items-center gap-1"
               >
                 <span>Manage Orders</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -173,7 +173,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {recentOrders.length === 0 ? (
-              <div className="py-8 text-center text-xs text-zinc-500">
+              <div className="py-8 text-center text-xs text-mutedGrey">
                 No simulated merchandise orders placed yet.
               </div>
             ) : (
@@ -181,22 +181,22 @@ export default function AdminDashboardPage() {
                 {recentOrders.map((o) => (
                   <div
                     key={o.id}
-                    className="flex items-center justify-between p-3 rounded-xl bg-zinc-950 border border-zinc-850 text-xs"
+                    className="flex items-center justify-between p-3 bg-offWhite border border-lightBorder text-xs"
                   >
                     <div>
-                      <span className="font-mono font-bold text-white block">
+                      <span className="font-mono font-bold text-charcoal block">
                         {o.orderReference}
                       </span>
-                      <span className="text-zinc-400">
+                      <span className="text-mutedGrey">
                         {o.customerName} • {o.items.length} item(s)
                       </span>
                     </div>
 
                     <div className="text-right">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-zinc-900 border border-brandGold/40 text-brandGold">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-offWhite border border-lightBorder text-charcoal">
                         {o.simulatedStatus}
                       </span>
-                      <span className="font-display font-bold text-white text-xs block mt-1">
+                      <span className="font-display font-bold text-primary text-xs block mt-1">
                         ₹{o.totalInr.toLocaleString('en-IN')}
                       </span>
                     </div>
@@ -208,17 +208,17 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Low Stock Alerts & Quick Restock */}
-        <div className="bg-darkSurface border border-zinc-800 rounded-2xl p-6 shadow-card space-y-4">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+        <div className="bg-white border border-lightBorder shadow-card p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-lightBorder pb-3">
             <div className="flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-amber-500" />
-              <h2 className="font-display font-bold text-lg text-white uppercase">
+              <AlertTriangle className="w-5 h-5 text-amber-600" />
+              <h2 className="font-display font-bold text-lg text-charcoal uppercase">
                 Demo Inventory Alerts ({lowStockVariants.length})
               </h2>
             </div>
             <Link
               href="/admin/inventory"
-              className="text-xs text-brandGold hover:underline font-semibold flex items-center gap-1"
+              className="text-xs text-primary hover:underline font-bold flex items-center gap-1"
             >
               <span>Full Inventory Control</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -226,7 +226,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {lowStockVariants.length === 0 ? (
-            <p className="text-xs text-emerald-400 py-3">
+            <p className="text-xs text-emerald-700 py-3">
               All product variants maintain sufficient demo stock quantities.
             </p>
           ) : (
@@ -234,19 +234,19 @@ export default function AdminDashboardPage() {
               {lowStockVariants.slice(0, 6).map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-3 bg-zinc-950 rounded-xl border border-amber-900/40 flex items-center justify-between text-xs"
+                  className="p-3 bg-offWhite border border-amber-200 flex items-center justify-between text-xs"
                 >
                   <div>
-                    <h3 className="font-bold text-white truncate max-w-[180px]">{item.product}</h3>
-                    <span className="text-zinc-400 text-[11px]">Size: {item.size}</span>
+                    <h3 className="font-bold text-charcoal truncate max-w-[180px]">{item.product}</h3>
+                    <span className="text-mutedGrey text-[11px]">Size: {item.size}</span>
                   </div>
                   <div className="text-right">
-                    <span className="font-mono font-bold text-amber-400 block">
+                    <span className="font-mono font-bold text-amber-700 block">
                       {item.stock} left
                     </span>
                     <Link
                       href="/admin/inventory"
-                      className="text-[10px] text-primary hover:underline font-semibold"
+                      className="text-[10px] text-primary hover:underline font-bold"
                     >
                       Restock →
                     </Link>

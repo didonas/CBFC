@@ -73,21 +73,21 @@ export default function AdminNewsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-offWhite text-charcoal">
       <AdminHeader
         title="News & Editorial CMS"
         subtitle="Publish match reports, club statements, interviews, and academy bulletins."
       />
 
       <div className="p-6 sm:p-8 space-y-6">
-        <div className="flex items-center justify-between bg-darkSurface p-4 rounded-2xl border border-zinc-800">
-          <span className="text-xs text-zinc-400 font-semibold">
-            Total Articles: <strong className="text-white">{news.length} stories</strong>
+        <div className="flex items-center justify-between bg-white p-4 border border-lightBorder shadow-card">
+          <span className="text-xs text-mutedGrey font-semibold">
+            Total Articles: <strong className="text-charcoal">{news.length} stories</strong>
           </span>
 
           <button
             onClick={openAddModal}
-            className="px-5 py-2.5 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-club flex items-center gap-2"
+            className="px-5 py-2.5 rounded bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
             <span>Create Article</span>
@@ -95,11 +95,11 @@ export default function AdminNewsPage() {
         </div>
 
         {/* News Table */}
-        <div className="bg-darkSurface border border-zinc-800 rounded-2xl overflow-hidden shadow-card">
+        <div className="bg-white border border-lightBorder shadow-card overflow-hidden">
           <div className="overflow-x-auto text-xs">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-zinc-800 bg-zinc-950/60 text-zinc-400 font-display uppercase tracking-wider text-[11px]">
+                <tr className="border-b border-lightBorder bg-offWhite text-mutedGrey font-display uppercase tracking-wider text-[11px]">
                   <th className="py-3 px-4">Story Title</th>
                   <th className="py-3 px-4">Category</th>
                   <th className="py-3 px-4">Author</th>
@@ -108,22 +108,22 @@ export default function AdminNewsPage() {
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-850 text-zinc-300">
+              <tbody className="divide-y divide-lightBorder text-charcoal">
                 {news.map((item) => (
-                  <tr key={item.id} className="hover:bg-zinc-800/40 transition">
+                  <tr key={item.id} className="hover:bg-offWhite/60 transition">
                     <td className="py-3 px-4 flex items-center gap-3">
-                      <div className="relative w-12 h-8 rounded overflow-hidden bg-zinc-950 border border-zinc-800 shrink-0">
+                      <div className="relative w-12 h-8 rounded overflow-hidden bg-offWhite border border-lightBorder shrink-0">
                         <Image src={item.featuredImageUrl} alt={item.title} fill className="object-cover" />
                       </div>
-                      <span className="font-bold text-white max-w-sm truncate">{item.title}</span>
+                      <span className="font-bold text-charcoal max-w-sm truncate">{item.title}</span>
                     </td>
-                    <td className="py-3 px-4 font-semibold text-brandGold">
+                    <td className="py-3 px-4 font-semibold text-primary">
                       {item.category}
                     </td>
-                    <td className="py-3 px-4 text-zinc-400">
+                    <td className="py-3 px-4 text-mutedGrey">
                       {item.authorName}
                     </td>
-                    <td className="py-3 px-4 font-mono text-[11px]">
+                    <td className="py-3 px-4 font-mono text-[11px] text-mutedGrey">
                       {new Date(item.publishedAt).toLocaleDateString('en-IN', {
                         day: 'numeric',
                         month: 'short',
@@ -131,14 +131,14 @@ export default function AdminNewsPage() {
                       })}
                     </td>
                     <td className="py-3 px-4">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${item.isPublished ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-zinc-800 text-zinc-500'}`}>
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${item.isPublished ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-offWhite text-mutedGrey'}`}>
                         {item.isPublished ? 'Published' : 'Draft'}
                       </span>
                     </td>
                     <td className="py-3 px-4 text-right space-x-2">
                       <button
                         onClick={() => openEditModal(item)}
-                        className="p-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition"
+                        className="p-1.5 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal transition"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
@@ -146,7 +146,7 @@ export default function AdminNewsPage() {
                         onClick={() => {
                           if (confirm(`Delete article "${item.title}"?`)) deleteNewsPost(item.id);
                         }}
-                        className="p-1.5 rounded bg-zinc-800 hover:bg-red-900/60 text-red-300 transition"
+                        className="p-1.5 rounded bg-offWhite hover:bg-red-50 border border-lightBorder text-red-600 transition"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
@@ -161,36 +161,36 @@ export default function AdminNewsPage() {
 
       {/* Add / Edit Article Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-darkSurface border border-zinc-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5 animate-in fade-in duration-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-              <h3 className="font-display font-black text-xl text-white uppercase">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-lightBorder shadow-2xl max-w-lg w-full p-6 sm:p-8 space-y-5 animate-in fade-in duration-200 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-lightBorder pb-3">
+              <h3 className="font-display font-black text-xl text-charcoal uppercase">
                 {editingPost ? 'Edit Article' : 'Compose News Article'}
               </h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-zinc-400 hover:text-white">
+              <button onClick={() => setIsModalOpen(false)} className="text-mutedGrey hover:text-charcoal">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleSave} className="space-y-4 text-xs">
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Headline Title *</label>
+                <label className="block text-charcoal font-semibold mb-1">Headline Title *</label>
                 <input
                   type="text"
                   required
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Category</label>
+                  <label className="block text-charcoal font-semibold mb-1">Category</label>
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value as any)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   >
                     <option value="Match Report">Match Report</option>
                     <option value="Club News">Club News</option>
@@ -200,50 +200,50 @@ export default function AdminNewsPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-zinc-400 font-semibold mb-1">Author Name</label>
+                  <label className="block text-charcoal font-semibold mb-1">Author Name</label>
                   <input
                     type="text"
                     value={authorName}
                     onChange={(e) => setAuthorName(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Featured Image URL</label>
+                <label className="block text-charcoal font-semibold mb-1">Featured Image URL</label>
                 <input
                   type="text"
                   value={featuredImageUrl}
                   onChange={(e) => setFeaturedImageUrl(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary font-mono text-[11px]"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary font-mono text-[11px]"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Summary / Excerpt</label>
+                <label className="block text-charcoal font-semibold mb-1">Summary / Excerpt</label>
                 <textarea
                   rows={2}
                   required
                   value={excerpt}
                   onChange={(e) => setExcerpt(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">Article Content</label>
+                <label className="block text-charcoal font-semibold mb-1">Article Content</label>
                 <textarea
                   rows={5}
                   required
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2 text-charcoal focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div className="flex items-center gap-6 pt-2">
-                <label className="flex items-center gap-2 cursor-pointer text-zinc-300">
+                <label className="flex items-center gap-2 cursor-pointer text-charcoal">
                   <input
                     type="checkbox"
                     checked={isPublished}
@@ -252,7 +252,7 @@ export default function AdminNewsPage() {
                   />
                   <span>Published</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer text-brandGold font-semibold">
+                <label className="flex items-center gap-2 cursor-pointer text-primary font-semibold">
                   <input
                     type="checkbox"
                     checked={isFeatured}
@@ -263,17 +263,17 @@ export default function AdminNewsPage() {
                 </label>
               </div>
 
-              <div className="pt-4 border-t border-zinc-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-lightBorder flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-zinc-800 text-zinc-300"
+                  className="px-4 py-2 rounded bg-offWhite hover:bg-zinc-200 border border-lightBorder text-charcoal"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold uppercase tracking-wider"
+                  className="px-5 py-2 rounded bg-primary hover:bg-deepRed text-white font-display font-bold uppercase tracking-wider"
                 >
                   Save Story
                 </button>

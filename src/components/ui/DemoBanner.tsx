@@ -47,7 +47,7 @@ export const DemoBanner: React.FC = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-brandBlack via-darkSurface to-brandBlack border-b border-primary/30 text-xs text-zinc-300 relative z-50">
+    <div className="bg-charcoal border-b border-zinc-800 text-xs text-zinc-300 relative z-50">
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-1.5 flex flex-wrap items-center justify-between gap-2">
         {/* Left: Demo badge & notice */}
         <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ export const DemoBanner: React.FC = () => {
         {/* Right: Quick Role Switcher & Controls */}
         <div className="flex items-center gap-2">
           {currentUser ? (
-            <div className="flex items-center gap-1.5 bg-cardDark/90 px-2 py-1 rounded border border-zinc-800">
+            <div className="flex items-center gap-1.5 bg-zinc-800 px-2 py-1 rounded border border-zinc-700">
               <User className="w-3.5 h-3.5 text-brandGold" />
               <span className="text-white font-medium truncate max-w-[120px] sm:max-w-[150px]">
                 {currentUser.fullName}

@@ -19,43 +19,43 @@ export const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   });
 
   return (
-    <article className="group bg-darkSurface border border-zinc-800 hover:border-primary/50 hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 rounded-xl overflow-hidden flex flex-col justify-between">
+    <article className="group bg-white border border-lightBorder hover:border-primary hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 overflow-hidden flex flex-col justify-between">
       <div>
         {/* Featured Image */}
-        <Link href={`/news/${post.slug}`} className="block relative aspect-[16/9] w-full bg-zinc-950 overflow-hidden">
+        <Link href={`/news/${post.slug}`} className="block relative aspect-[16/9] w-full bg-[#EAE8E2] overflow-hidden">
           <Image
             src={post.featuredImageUrl}
             alt={post.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded bg-primary/90 text-white font-display font-bold text-[11px] uppercase tracking-wider backdrop-blur-sm">
+          <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-primary text-white font-display font-bold text-[10px] uppercase tracking-wider shadow-sm">
             {post.category}
           </span>
         </Link>
 
         {/* Content */}
         <div className="p-5">
-          <div className="flex items-center gap-3 text-xs text-zinc-500 mb-2">
+          <div className="flex items-center gap-2.5 text-xs text-mutedGrey mb-2 font-medium">
             <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3.5 h-3.5 text-primary" />
               {formattedDate}
             </span>
-            <span>•</span>
+            <span className="text-zinc-300">•</span>
             <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" />
+              <Clock className="w-3.5 h-3.5 text-mutedGrey" />
               {post.readTimeMinutes} min read
             </span>
           </div>
 
           <Link href={`/news/${post.slug}`}>
-            <h3 className="font-display font-bold text-lg text-white group-hover:text-primary transition line-clamp-2 leading-snug">
+            <h3 className="font-display font-bold text-lg text-charcoal group-hover:text-primary transition line-clamp-2 leading-snug">
               {post.title}
             </h3>
           </Link>
 
-          <p className="mt-2 text-xs text-zinc-400 line-clamp-3 leading-relaxed">
+          <p className="mt-2 text-xs text-charcoal/70 line-clamp-3 leading-relaxed">
             {post.excerpt}
           </p>
         </div>
@@ -65,7 +65,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
       <div className="px-5 pb-5 pt-0">
         <Link
           href={`/news/${post.slug}`}
-          className="inline-flex items-center gap-1 text-xs font-semibold text-brandGold group-hover:text-white transition"
+          className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-primary group-hover:text-deepRed transition"
         >
           <span>Read Full Story</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

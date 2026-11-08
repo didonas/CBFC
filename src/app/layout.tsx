@@ -62,8 +62,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${barlowCondensed.variable} dark`}>
-      <body className="bg-brandBlack text-zinc-100 font-sans min-h-screen flex flex-col antialiased">
+    <html lang="en" className={`${inter.variable} ${barlowCondensed.variable}`}>
+      <body className="bg-offWhite text-charcoal font-sans min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
         <AppProvider>
           <ScrollProgress />
           <DemoBanner />

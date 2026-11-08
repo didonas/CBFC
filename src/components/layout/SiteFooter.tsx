@@ -8,12 +8,12 @@ import { ShieldAlert, Instagram, Mail, Phone, MapPin, Trophy, ArrowUpRight } fro
 
 export const SiteFooter: React.FC = () => {
   return (
-    <footer className="bg-brandBlack border-t border-zinc-800 text-zinc-400">
+    <footer className="bg-charcoal border-t border-zinc-800 text-zinc-400">
       {/* Red Machines Accent Line */}
-      <div className="h-1.5 bg-gradient-to-r from-primary via-brandGold to-deepRed" />
+      <div className="h-1 bg-gradient-to-r from-primary via-deepRed to-brandGold" />
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Col 1 & 2: Brand & Club Identity */}
           <div className="lg:col-span-2 space-y-4">

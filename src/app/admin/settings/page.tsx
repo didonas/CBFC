@@ -29,7 +29,7 @@ export default function AdminSettingsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-offWhite text-charcoal">
       <AdminHeader
         title="Global Platform Settings"
         subtitle="Configure the top announcement banner, current football season and demo platform controls."
@@ -39,18 +39,18 @@ export default function AdminSettingsPage() {
         {/* Announcement Bar Form */}
         <form
           onSubmit={handleSave}
-          className="bg-darkSurface border border-zinc-800 rounded-3xl p-6 sm:p-8 space-y-6 text-xs shadow-card"
+          className="bg-white border border-lightBorder shadow-card p-6 sm:p-8 space-y-6 text-xs"
         >
-          <div className="flex items-center gap-2 border-b border-zinc-800 pb-3">
-            <Megaphone className="w-5 h-5 text-brandGold" />
-            <h2 className="font-display font-bold text-lg text-white uppercase tracking-wider">
+          <div className="flex items-center gap-2 border-b border-lightBorder pb-3">
+            <Megaphone className="w-5 h-5 text-primary" />
+            <h2 className="font-display font-bold text-lg text-charcoal uppercase tracking-wider">
               Announcement Bar Configuration
             </h2>
           </div>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-zinc-400 font-semibold mb-1">
+              <label className="block text-charcoal font-semibold mb-1">
                 Announcement Message Text *
               </label>
               <input
@@ -58,33 +58,33 @@ export default function AdminSettingsPage() {
                 required
                 value={announcementText}
                 onChange={(e) => setAnnouncementText(e.target.value)}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary"
+                className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">
+                <label className="block text-charcoal font-semibold mb-1">
                   Call to Action Link Text
                 </label>
                 <input
                   type="text"
                   value={announcementLinkText}
                   onChange={(e) => setAnnouncementLinkText(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary"
                   placeholder="e.g. Reserve Demo Tickets"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">
+                <label className="block text-charcoal font-semibold mb-1">
                   Target URL
                 </label>
                 <input
                   type="text"
                   value={announcementLinkUrl}
                   onChange={(e) => setAnnouncementLinkUrl(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary font-mono text-[11px]"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary font-mono text-[11px]"
                   placeholder="/tickets/m-101"
                 />
               </div>
@@ -92,20 +92,20 @@ export default function AdminSettingsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div>
-                <label className="block text-zinc-400 font-semibold mb-1">
+                <label className="block text-charcoal font-semibold mb-1">
                   Active Competition Season
                 </label>
                 <input
                   type="text"
                   value={activeSeason}
                   onChange={(e) => setActiveSeason(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary"
+                  className="w-full bg-offWhite border border-lightBorder rounded px-4 py-2.5 text-charcoal focus:outline-none focus:border-primary"
                   placeholder="2026/27"
                 />
               </div>
 
               <div className="flex items-center pt-6">
-                <label className="flex items-center gap-2 cursor-pointer text-white font-semibold">
+                <label className="flex items-center gap-2 cursor-pointer text-charcoal font-semibold">
                   <input
                     type="checkbox"
                     checked={isAnnouncementActive}
@@ -119,16 +119,16 @@ export default function AdminSettingsPage() {
           </div>
 
           {savedFeedback && (
-            <div className="p-3 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-200 text-xs flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-emerald-400" />
+            <div className="p-3 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-emerald-600" />
               <span>Platform settings updated successfully! Changes reflected across the website.</span>
             </div>
           )}
 
-          <div className="pt-4 border-t border-zinc-800 flex justify-end">
+          <div className="pt-4 border-t border-lightBorder flex justify-end">
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-club flex items-center gap-2"
+              className="px-6 py-3 rounded bg-primary hover:bg-deepRed text-white font-display font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2"
             >
               <Save className="w-4 h-4" />
               <span>SAVE CONFIGURATION</span>
@@ -137,14 +137,14 @@ export default function AdminSettingsPage() {
         </form>
 
         {/* Reset System Data Section */}
-        <div className="bg-darkSurface border border-zinc-800 rounded-3xl p-6 sm:p-8 space-y-4 text-xs">
-          <div className="flex items-center gap-2 text-red-400">
+        <div className="bg-white border border-lightBorder shadow-card p-6 sm:p-8 space-y-4 text-xs">
+          <div className="flex items-center gap-2 text-primary">
             <ShieldAlert className="w-5 h-5 shrink-0" />
-            <h2 className="font-display font-bold text-lg text-white uppercase">
+            <h2 className="font-display font-bold text-lg text-charcoal uppercase">
               Demonstration Environment Reset
             </h2>
           </div>
-          <p className="text-zinc-400 leading-relaxed">
+          <p className="text-mutedGrey leading-relaxed">
             Reset all demo transactions, simulated bookings, orders, and custom-added players back to initial official club seed defaults.
           </p>
 
@@ -155,7 +155,7 @@ export default function AdminSettingsPage() {
                 alert('Demo state restored to official club seed defaults.');
               }
             }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-950/80 hover:bg-red-900 border border-red-800 text-red-200 font-display font-bold text-xs uppercase tracking-wider transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-display font-bold text-xs uppercase tracking-wider transition"
           >
             <RotateCcw className="w-4 h-4" />
             <span>RESET ALL DEMO DATA TO FACTORY SEED</span>
