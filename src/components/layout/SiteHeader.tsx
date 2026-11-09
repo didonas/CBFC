@@ -47,10 +47,47 @@ export const SiteHeader: React.FC = () => {
     <header
       className={`sticky top-0 z-40 transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#0D0F15]/95 backdrop-blur-md shadow-lg border-b border-white/10'
-          : 'bg-[#0D0F15] border-b border-white/10'
+          ? 'bg-[#0B0E17]/98 backdrop-blur-md shadow-2xl border-b border-white/10'
+          : 'bg-[#0B0E17] border-b border-white/10'
       }`}
     >
+      {/* Top Matchday Broadcast Strip (Barça / Real Madrid style) */}
+      <div className="hidden md:block bg-[#06080E] border-b border-white/5 py-1.5 px-4 sm:px-6 lg:px-8 xl:px-12 text-[11px] text-zinc-400">
+        <div className="w-full max-w-[1920px] mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 font-display font-bold uppercase tracking-wider text-white">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              MATCHDAY HUB:
+            </span>
+            <span className="text-zinc-300">
+              CHURCHILL BROTHERS vs DEMPO SC • SATURDAY 21 NOV, 19:00 IST • FATORDA STADIUM
+            </span>
+            <span className="text-zinc-600">•</span>
+            <span className="text-brandGold font-semibold">
+              LIVE ON STAR SPORTS & JIOCINEMA
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 font-display font-bold uppercase tracking-wider text-[10px]">
+            <Link href="/tickets" className="text-zinc-300 hover:text-primary transition">
+              Match Tickets
+            </Link>
+            <span className="text-zinc-700">|</span>
+            <Link href="/shop" className="text-zinc-300 hover:text-primary transition">
+              2026/27 Kits
+            </Link>
+            <span className="text-zinc-700">|</span>
+            <Link href="/media" className="text-zinc-300 hover:text-primary transition">
+              Red Machines TV
+            </Link>
+            <span className="text-zinc-700">|</span>
+            <Link href="/admin" className="text-primary hover:text-red-400 transition">
+              Club Portal
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Brand Identity / Official Crest */}
