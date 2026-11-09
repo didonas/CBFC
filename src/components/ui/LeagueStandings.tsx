@@ -116,25 +116,25 @@ const STANDINGS_DATA: StandingRow[] = [
 
 export const LeagueStandings: React.FC = () => {
   return (
-    <div className="bg-[#141926] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+    <div className="bg-[#182236] border border-white/10 rounded-2xl overflow-hidden shadow-card">
       {/* Header */}
-      <div className="p-5 sm:p-6 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center text-primary">
-            <Trophy className="w-4 h-4" />
+      <div className="p-6 sm:p-7 border-b border-white/10 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary">
+            <Trophy className="w-5 h-5 text-brandGold" />
           </div>
           <div>
-            <h3 className="font-display font-black text-lg text-white uppercase tracking-wider">
+            <h3 className="font-display font-black text-xl text-white uppercase tracking-wider">
               I-LEAGUE 2026-27 STANDINGS
             </h3>
-            <span className="text-[11px] text-zinc-400 font-medium">
+            <span className="text-xs text-slate-400 font-medium">
               Championship Phase • Matchday 17 of 22
             </span>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-brandGold font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#1C2436] border border-white/10">
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-brandGold font-display font-bold uppercase tracking-wider px-3 py-1.5 rounded bg-[#1C273E] border border-white/10">
             <Award className="w-3.5 h-3.5 text-brandGold" />
             1st Place: AFC Continental Spot
           </span>
@@ -152,7 +152,7 @@ export const LeagueStandings: React.FC = () => {
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="border-b border-white/10 text-zinc-400 uppercase font-mono text-[10px] tracking-wider bg-[#0B0E17]/50">
+            <tr className="border-b border-white/10 text-slate-400 uppercase font-mono text-[10px] tracking-wider bg-[#121826]/70">
               <th className="py-3 px-4 w-12 text-center">Pos</th>
               <th className="py-3 px-4">Club</th>
               <th className="py-3 px-2 text-center">PL</th>
@@ -276,7 +276,7 @@ export const LeagueStandings: React.FC = () => {
       </div>
 
       {/* Footer Notes */}
-      <div className="p-3.5 bg-[#0B0E17]/60 border-t border-white/5 flex flex-wrap items-center justify-between text-[11px] text-zinc-400 gap-2">
+      <div className="p-3.5 bg-[#121826]/70 border-t border-white/5 flex flex-wrap items-center justify-between text-[11px] text-slate-400 gap-2">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500" />
           <span>Position 1: Qualifies for AFC Champions League 2 Preliminary Round</span>

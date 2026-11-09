@@ -19,10 +19,10 @@ export const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   });
 
   return (
-    <article className="group bg-[#151821] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-xl overflow-hidden flex flex-col justify-between">
+    <article className="group bg-[#182236] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-2xl overflow-hidden flex flex-col justify-between">
       <div>
         {/* Featured Image */}
-        <Link href={`/news/${post.slug}`} className="block relative aspect-[16/9] w-full bg-[#0D0F15] overflow-hidden">
+        <Link href={`/news/${post.slug}`} className="block relative aspect-[16/9] w-full bg-[#121826] overflow-hidden">
           <Image
             src={post.featuredImageUrl}
             alt={post.title}
@@ -30,14 +30,14 @@ export const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-primary text-white font-display font-bold text-[10px] uppercase tracking-wider shadow-sm">
+          <span className="absolute top-3.5 left-3.5 px-2.5 py-1 rounded bg-primary text-white font-display font-bold text-[10px] uppercase tracking-wider shadow-sm">
             {post.category}
           </span>
         </Link>
 
         {/* Content */}
-        <div className="p-5">
-          <div className="flex items-center gap-2.5 text-xs text-zinc-400 mb-2 font-medium">
+        <div className="p-6">
+          <div className="flex items-center gap-2.5 text-xs text-slate-400 mb-2.5 font-medium">
             <span className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-primary" />
               {formattedDate}

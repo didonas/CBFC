@@ -20,22 +20,22 @@ export default function TicketsListingPage() {
   const ticketMatches = matches.filter((m) => m.isTicketsAvailable && m.status === 'scheduled');
 
   return (
-    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#0B0E17] text-zinc-100">
+    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#121826] text-slate-100">
       {/* Header Banner */}
-      <div className="bg-[#141926] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C2436] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary">
+      <div className="bg-[#182236] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-card space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C273E] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary">
           <Ticket className="w-3.5 h-3.5" />
           DEMONSTRATION TICKETING MODULE
         </div>
         <h1 className="font-display font-black text-4xl sm:text-6xl text-white uppercase tracking-tight leading-none">
           MATCHDAY TICKETS (DEMO)
         </h1>
-        <p className="text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
           Experience the interactive ticketing flow for Churchill Brothers FC Goa. Select your match, reserve stand categories, and generate real scannable digital passes with zero payment required.
         </p>
 
         {/* Mandatory Demo Notice */}
-        <div className="p-4 rounded-xl bg-[#1C2436] border border-primary/40 flex items-start sm:items-center gap-3 text-xs text-zinc-300">
+        <div className="p-4 rounded-xl bg-[#1C273E] border border-primary/40 flex items-start sm:items-center gap-3 text-xs text-slate-300">
           <ShieldAlert className="w-5 h-5 text-primary shrink-0 mt-0.5 sm:mt-0" />
           <p>
             <strong className="text-primary uppercase font-bold">DEMO TICKETING ONLY: </strong>
@@ -70,14 +70,14 @@ export default function TicketsListingPage() {
             return (
               <div
                 key={match.id}
-                className="bg-[#141926] border border-white/10 hover:border-primary/60 rounded-2xl transition-all p-6 sm:p-8 shadow-2xl flex flex-col justify-between space-y-6 group"
+                className="bg-[#182236] border border-white/10 hover:border-primary/60 rounded-2xl transition-all p-6 sm:p-8 shadow-card flex flex-col justify-between space-y-6 group"
               >
                 <div className="space-y-5">
                   <div className="flex items-center justify-between text-xs pb-3 border-b border-white/10">
                     <span className="font-display font-bold uppercase tracking-wider text-primary">
                       {match.competition}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded bg-[#1C2436] border border-white/10 text-zinc-300 font-semibold text-[11px]">
+                    <span className="px-2.5 py-0.5 rounded bg-[#1C273E] border border-white/10 text-slate-300 font-semibold text-[11px]">
                       {totalAvailable} Demo Seats Available
                     </span>
                   </div>
@@ -105,7 +105,7 @@ export default function TicketsListingPage() {
                         <span className="font-display font-black text-xl text-white uppercase block">
                           {match.opponentName}
                         </span>
-                        <span className="text-[10px] text-zinc-400 font-bold uppercase">
+                        <span className="text-[10px] text-slate-400 font-bold uppercase">
                           Opponent
                         </span>
                       </div>
@@ -121,7 +121,7 @@ export default function TicketsListingPage() {
                   </div>
 
                   {/* Date & Venue */}
-                  <div className="space-y-1.5 text-xs text-zinc-300 bg-[#1C2436] p-3.5 rounded-xl border border-white/10">
+                  <div className="space-y-1.5 text-xs text-slate-300 bg-[#1C273E] p-3.5 rounded-xl border border-white/10">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-primary" />
                       <span>{formattedDate} • {formattedTime} IST</span>

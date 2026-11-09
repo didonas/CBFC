@@ -14,26 +14,26 @@ export const PlayerCard: React.FC<PlayerCardProps> = ({ player }) => {
   return (
     <Link
       href={`/team/${player.slug}`}
-      className="group relative bg-[#151821] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-xl overflow-hidden flex flex-col"
+      className="group relative bg-[#182236] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-2xl overflow-hidden flex flex-col"
     >
       {/* Top Banner: Shirt Number & Position Tag */}
-      <div className="p-3.5 pb-2 flex items-center justify-between z-10 bg-[#151821]">
+      <div className="p-4 pb-2.5 flex items-center justify-between z-10 bg-[#182236]">
         <span className="font-display font-black text-2xl text-white group-hover:text-primary transition-colors">
           #{player.shirtNumber}
         </span>
-        <div className="flex items-center gap-1.5 bg-[#0D0F15] px-2.5 py-0.5 rounded border border-white/10 text-[10px] font-bold uppercase tracking-wider">
+        <div className="flex items-center gap-1.5 bg-[#121826] px-2.5 py-0.5 rounded-lg border border-white/10 text-[10px] font-bold uppercase tracking-wider">
           <span className="text-primary font-bold">
             {player.position}
           </span>
-          <span className="text-zinc-600">•</span>
-          <span className="text-zinc-300 font-mono">
+          <span className="text-slate-500">•</span>
+          <span className="text-slate-300 font-mono">
             {player.nationalityCode}
           </span>
         </div>
       </div>
 
       {/* Portrait Area */}
-      <div className="relative aspect-[3/4] w-full bg-[#0D0F15] overflow-hidden">
+      <div className="relative aspect-[3/4] w-full bg-[#121826] overflow-hidden">
         <Image
           src={player.portraitUrl}
           alt={player.fullName}
@@ -43,11 +43,11 @@ export const PlayerCard: React.FC<PlayerCardProps> = ({ player }) => {
         />
 
         {/* Subtle Bottom Shadow Blend */}
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#151821] via-[#151821]/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#182236] via-[#182236]/40 to-transparent" />
       </div>
 
       {/* Information Area */}
-      <div className="p-4 flex-1 flex flex-col justify-between bg-[#151821] relative z-10">
+      <div className="p-5 flex-1 flex flex-col justify-between bg-[#182236] relative z-10">
         <div>
           <h3 className="font-display font-black text-lg text-white uppercase tracking-wide group-hover:text-primary transition line-clamp-1">
             {player.fullName}

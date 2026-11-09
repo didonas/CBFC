@@ -15,10 +15,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const isOutOfStock = totalStock <= 0;
 
   return (
-    <div className="group bg-[#151821] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-xl overflow-hidden flex flex-col justify-between">
+    <div className="group bg-[#182236] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-2xl overflow-hidden flex flex-col justify-between">
       <div>
         {/* Product Image Area */}
-        <Link href={`/shop/${product.slug}`} className="block relative aspect-[4/5] bg-[#0D0F15] overflow-hidden">
+        <Link href={`/shop/${product.slug}`} className="block relative aspect-[4/5] bg-[#121826] overflow-hidden">
           <Image
             src={product.featuredImageUrl}
             alt={product.name}
@@ -36,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           {isOutOfStock && (
             <div className="absolute inset-0 bg-black/80 backdrop-blur-xs flex items-center justify-center">
-              <span className="px-3 py-1 rounded bg-[#151821] border border-white/10 text-white font-display font-bold text-xs uppercase tracking-wider">
+              <span className="px-3 py-1 rounded bg-[#182236] border border-white/10 text-white font-display font-bold text-xs uppercase tracking-wider">
                 Out of Demo Stock
               </span>
             </div>
@@ -44,7 +44,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </Link>
 
         {/* Content Area */}
-        <div className="p-4">
+        <div className="p-5">
           <div className="flex items-center justify-between text-xs mb-1">
             <span className="font-bold uppercase tracking-wider text-primary text-[11px]">
               {product.categoryName}

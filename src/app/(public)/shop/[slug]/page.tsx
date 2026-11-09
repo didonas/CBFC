@@ -32,9 +32,9 @@ export default function ProductDetailPage() {
 
   if (!product) {
     return (
-      <div className="max-w-4xl mx-auto py-24 px-4 text-center space-y-4 bg-[#0B0E17] text-white">
+      <div className="max-w-4xl mx-auto py-24 px-4 text-center space-y-4 bg-[#121826] text-white">
         <h1 className="font-display font-black text-3xl text-white">Product Not Found</h1>
-        <p className="text-zinc-400 text-sm">This merchandise item does not exist in our catalog.</p>
+        <p className="text-slate-400 text-sm">This merchandise item does not exist in our catalog.</p>
         <Link
           href="/shop"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold uppercase"
@@ -74,12 +74,12 @@ export default function ProductDetailPage() {
     .slice(0, 3);
 
   return (
-    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#0B0E17] text-zinc-100">
+    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#121826] text-slate-100">
       {/* Back button */}
       <div>
         <Link
           href="/shop"
-          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-primary transition"
+          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-primary transition"
         >
           <ArrowLeft className="w-4 h-4 text-primary" />
           <span>Back to Merchandise Megastore</span>
@@ -91,7 +91,7 @@ export default function ProductDetailPage() {
         {/* Left Column: Image Gallery */}
         <div className="lg:col-span-7 space-y-4">
           {/* Main Large Display */}
-          <div className="relative aspect-square w-full bg-[#141926] border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+          <div className="relative aspect-square w-full bg-[#182236] border border-white/10 rounded-2xl shadow-card overflow-hidden">
             <Image
               src={currentImage}
               alt={product.name}
@@ -114,10 +114,10 @@ export default function ProductDetailPage() {
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(img)}
-                  className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition shrink-0 bg-[#141926] ${
+                  className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition shrink-0 bg-[#182236] ${
                     currentImage === img
                       ? 'border-primary ring-2 ring-primary/40'
-                      : 'border-white/10 hover:border-zinc-400'
+                      : 'border-white/10 hover:border-slate-400'
                   }`}
                 >
                   <Image src={img} alt={`${product.name} preview ${idx}`} fill sizes="80px" className="object-cover" />
@@ -128,7 +128,7 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Right Column: Details, Sizes, Add to Cart */}
-        <div className="lg:col-span-5 bg-[#141926] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+        <div className="lg:col-span-5 bg-[#182236] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-card space-y-6">
           <div className="space-y-2">
             <span className="text-xs font-display font-bold uppercase tracking-widest text-primary block">
               {product.categoryName}
@@ -190,8 +190,8 @@ export default function ProductDetailPage() {
                       isSelected
                         ? 'border-primary bg-primary text-white shadow-club'
                         : isOut
-                        ? 'border-white/5 bg-[#0B0E17] text-zinc-600 line-through cursor-not-allowed'
-                        : 'border-white/10 bg-[#1C2436] text-zinc-200 hover:border-white/30'
+                        ? 'border-white/5 bg-[#121826] text-slate-600 line-through cursor-not-allowed'
+                        : 'border-white/10 bg-[#1C273E] text-slate-200 hover:border-white/30'
                     }`}
                   >
                     <span>{v.size}</span>
@@ -210,7 +210,7 @@ export default function ProductDetailPage() {
               Quantity
             </span>
             <div className="flex items-center gap-3">
-              <div className="flex items-center border border-white/10 bg-[#1C2436] rounded-lg overflow-hidden">
+              <div className="flex items-center border border-white/10 bg-[#1C273E] rounded-lg overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}

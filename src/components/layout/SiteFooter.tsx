@@ -155,7 +155,7 @@ export const SiteFooter: React.FC = () => {
         </div>
 
         {/* Mandatory Demonstration Notice Box */}
-        <div className="mt-12 p-4 rounded-xl bg-zinc-900/90 border border-primary/30 text-xs text-zinc-300 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+        <div className="mt-12 p-4 rounded-xl bg-[#121826]/90 border border-primary/30 text-xs text-slate-300 flex flex-col sm:flex-row items-start sm:items-center gap-3">
           <ShieldAlert className="w-6 h-6 text-primary shrink-0" />
           <div className="space-y-0.5">
             <span className="font-bold text-white uppercase tracking-wider text-[11px]">

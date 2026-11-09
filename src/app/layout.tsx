@@ -63,7 +63,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${barlowCondensed.variable}`}>
-      <body className="bg-[#0D0F15] text-zinc-100 font-sans min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
+      <body className="bg-[#121826] text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
         <AppProvider>
           <ScrollProgress />
           <DemoBanner />

@@ -47,53 +47,16 @@ export const SiteHeader: React.FC = () => {
     <header
       className={`sticky top-0 z-40 transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#0B0E17]/98 backdrop-blur-md shadow-2xl border-b border-white/10'
-          : 'bg-[#0B0E17] border-b border-white/10'
+          ? 'bg-[#101625]/95 backdrop-blur-md shadow-2xl border-b border-white/10'
+          : 'bg-[#101625] border-b border-white/10'
       }`}
     >
-      {/* Top Matchday Broadcast Strip (Barça / Real Madrid style) */}
-      <div className="hidden md:block bg-[#06080E] border-b border-white/5 py-1.5 px-4 sm:px-6 lg:px-8 xl:px-12 text-[11px] text-zinc-400">
-        <div className="w-full max-w-[1920px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 font-display font-bold uppercase tracking-wider text-white">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              MATCHDAY HUB:
-            </span>
-            <span className="text-zinc-300">
-              CHURCHILL BROTHERS vs DEMPO SC • SATURDAY 21 NOV, 19:00 IST • FATORDA STADIUM
-            </span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-brandGold font-semibold">
-              LIVE ON STAR SPORTS & JIOCINEMA
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4 font-display font-bold uppercase tracking-wider text-[10px]">
-            <Link href="/tickets" className="text-zinc-300 hover:text-primary transition">
-              Match Tickets
-            </Link>
-            <span className="text-zinc-700">|</span>
-            <Link href="/shop" className="text-zinc-300 hover:text-primary transition">
-              2026/27 Kits
-            </Link>
-            <span className="text-zinc-700">|</span>
-            <Link href="/media" className="text-zinc-300 hover:text-primary transition">
-              Red Machines TV
-            </Link>
-            <span className="text-zinc-700">|</span>
-            <Link href="/admin" className="text-primary hover:text-red-400 transition">
-              Club Portal
-            </Link>
-          </div>
-        </div>
-      </div>
-
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Brand Identity / Official Crest */}
           <Link
             href="/"
-            className="flex items-center gap-3.5 group shrink-0 mr-6 lg:mr-10 xl:mr-14"
+            className="flex items-center gap-3.5 group shrink-0 mr-8 lg:mr-12 xl:mr-16"
           >
             <ClubCrest size={46} priority />
             <div className="flex flex-col">
@@ -113,10 +76,10 @@ export const SiteHeader: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-1.5">
+          <nav className="hidden lg:flex items-center space-x-1.5 xl:space-x-2">
             <Link
               href="/"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/') && pathname === '/'
                   ? 'text-white font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -132,121 +95,6 @@ export const SiteHeader: React.FC = () => {
               )}
             </Link>
 
-            {/* Club Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setClubDropdownOpen(true)}
-              onMouseLeave={() => setClubDropdownOpen(false)}
-            >
-              <button
-                className={`relative flex items-center gap-1 px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
-                  isActive('/club')
-                    ? 'text-white font-bold'
-                    : 'text-zinc-300 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                <span>Club</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 text-zinc-400 ${
-                    clubDropdownOpen ? 'rotate-180 text-primary' : ''
-                  }`}
-                />
-                {isActive('/club') && (
-                  <motion.div
-                    layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
-                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                  />
-                )}
-              </button>
-
-              <AnimatePresence>
-                {clubDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6, scale: 0.99 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.99 }}
-                    transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute top-full left-0 w-64 bg-[#151821] border border-white/10 rounded-md shadow-2xl py-1.5 z-50 backdrop-blur-xl"
-                  >
-                    <Link
-                      href="/club"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
-                      onClick={() => setClubDropdownOpen(false)}
-                    >
-                      <Shield className="w-4 h-4 text-primary shrink-0" />
-                      <div>
-                        <div className="font-semibold text-white">Club Identity</div>
-                        <div className="text-xs text-zinc-400">History, values & Goan heritage</div>
-                      </div>
-                    </Link>
-                    <Link
-                      href="/club#timeline"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
-                      onClick={() => setClubDropdownOpen(false)}
-                    >
-                      <History className="w-4 h-4 text-brandGold shrink-0" />
-                      <div>
-                        <div className="font-semibold text-white">Historical Timeline</div>
-                        <div className="text-xs text-zinc-400">Milestones from 1988 to today</div>
-                      </div>
-                    </Link>
-                    <Link
-                      href="/club#honours"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
-                      onClick={() => setClubDropdownOpen(false)}
-                    >
-                      <Trophy className="w-4 h-4 text-brandGold shrink-0" />
-                      <div>
-                        <div className="font-semibold text-white">Trophy Cabinet</div>
-                        <div className="text-xs text-zinc-400">I-League, Durand Cup & Shields</div>
-                      </div>
-                    </Link>
-                    <Link
-                      href="/club#stadium"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
-                      onClick={() => setClubDropdownOpen(false)}
-                    >
-                      <MapPin className="w-4 h-4 text-primary shrink-0" />
-                      <div>
-                        <div className="font-semibold text-white">Fatorda Fortress</div>
-                        <div className="text-xs text-zinc-400">Home ground & stadiums</div>
-                      </div>
-                    </Link>
-                    <Link
-                      href="/club#rivalries"
-                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition"
-                      onClick={() => setClubDropdownOpen(false)}
-                    >
-                      <Flame className="w-4 h-4 text-primary shrink-0" />
-                      <div>
-                        <div className="font-semibold text-white">The Goan Derby</div>
-                        <div className="text-xs text-zinc-400">Historic state rivalries</div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <Link
-              href="/team"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
-                isActive('/team')
-                  ? 'text-white font-bold'
-                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <span>Squad</span>
-              {isActive('/team') && (
-                <motion.div
-                  layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
-                  transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                />
-              )}
-            </Link>
-
             {/* Matches Dropdown */}
             <div
               className="relative"
@@ -254,7 +102,7 @@ export const SiteHeader: React.FC = () => {
               onMouseLeave={() => setMatchesDropdownOpen(false)}
             >
               <button
-                className={`relative flex items-center gap-1 px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+                className={`relative flex items-center gap-1 px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                   isActive('/matches')
                     ? 'text-white font-bold'
                     : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -282,25 +130,25 @@ export const SiteHeader: React.FC = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.99 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute top-full left-0 w-56 bg-[#151821] border border-white/10 rounded-md shadow-2xl py-1.5 z-50 backdrop-blur-xl"
+                    className="absolute top-full left-0 w-60 bg-[#161F33] border border-white/10 rounded-md shadow-2xl py-1.5 z-50 backdrop-blur-xl"
                   >
                     <Link
                       href="/matches"
-                      className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition font-medium"
+                      className="block px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition font-medium"
                       onClick={() => setMatchesDropdownOpen(false)}
                     >
-                      Fixtures & Results
+                      All Fixtures & Results
                     </Link>
                     <Link
                       href="/matches?tab=upcoming"
-                      className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition font-medium"
+                      className="block px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition font-medium"
                       onClick={() => setMatchesDropdownOpen(false)}
                     >
                       Upcoming Fixtures
                     </Link>
                     <Link
                       href="/matches?tab=results"
-                      className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-[#1E2230] transition font-medium"
+                      className="block px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition font-medium"
                       onClick={() => setMatchesDropdownOpen(false)}
                     >
                       Match Reports & Results
@@ -311,8 +159,26 @@ export const SiteHeader: React.FC = () => {
             </div>
 
             <Link
+              href="/team"
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+                isActive('/team')
+                  ? 'text-white font-bold'
+                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <span>Squad</span>
+              {isActive('/team') && (
+                <motion.div
+                  layoutId="activeNavIndicator"
+                  className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
+                  transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                />
+              )}
+            </Link>
+
+            <Link
               href="/tickets"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/tickets')
                   ? 'text-white font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -330,7 +196,7 @@ export const SiteHeader: React.FC = () => {
 
             <Link
               href="/shop"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/shop')
                   ? 'text-white font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -346,9 +212,106 @@ export const SiteHeader: React.FC = () => {
               )}
             </Link>
 
+            {/* Club Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setClubDropdownOpen(true)}
+              onMouseLeave={() => setClubDropdownOpen(false)}
+            >
+              <button
+                className={`relative flex items-center gap-1 px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+                  isActive('/club')
+                    ? 'text-white font-bold'
+                    : 'text-zinc-300 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                <span>Club</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 text-zinc-400 ${
+                    clubDropdownOpen ? 'rotate-180 text-primary' : ''
+                  }`}
+                />
+                {isActive('/club') && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-primary rounded-full"
+                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                  />
+                )}
+              </button>
+
+              <AnimatePresence>
+                {clubDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.99 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.99 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className="absolute top-full left-0 w-64 bg-[#161F33] border border-white/10 rounded-md shadow-2xl py-1.5 z-50 backdrop-blur-xl"
+                  >
+                    <Link
+                      href="/club"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition"
+                      onClick={() => setClubDropdownOpen(false)}
+                    >
+                      <Shield className="w-4 h-4 text-primary shrink-0" />
+                      <div>
+                        <div className="font-semibold text-white">Club Identity</div>
+                        <div className="text-xs text-slate-400">History, values & Goan heritage</div>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/club#timeline"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition"
+                      onClick={() => setClubDropdownOpen(false)}
+                    >
+                      <History className="w-4 h-4 text-brandGold shrink-0" />
+                      <div>
+                        <div className="font-semibold text-white">Historical Timeline</div>
+                        <div className="text-xs text-slate-400">Milestones from 1988 to today</div>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/club#honours"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition"
+                      onClick={() => setClubDropdownOpen(false)}
+                    >
+                      <Trophy className="w-4 h-4 text-brandGold shrink-0" />
+                      <div>
+                        <div className="font-semibold text-white">Trophy Cabinet</div>
+                        <div className="text-xs text-slate-400">I-League, Durand Cup & Shields</div>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/club#stadium"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition"
+                      onClick={() => setClubDropdownOpen(false)}
+                    >
+                      <MapPin className="w-4 h-4 text-primary shrink-0" />
+                      <div>
+                        <div className="font-semibold text-white">Fatorda Fortress</div>
+                        <div className="text-xs text-slate-400">Home ground & stadiums</div>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/club#rivalries"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-200 hover:text-white hover:bg-[#202B44] transition"
+                      onClick={() => setClubDropdownOpen(false)}
+                    >
+                      <Flame className="w-4 h-4 text-primary shrink-0" />
+                      <div>
+                        <div className="font-semibold text-white">The Goan Derby</div>
+                        <div className="text-xs text-slate-400">Historic state rivalries</div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link
               href="/news"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/news')
                   ? 'text-white font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -366,7 +329,7 @@ export const SiteHeader: React.FC = () => {
 
             <Link
               href="/media"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/media')
                   ? 'text-white font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -384,7 +347,7 @@ export const SiteHeader: React.FC = () => {
 
             <Link
               href="/partners"
-              className={`relative px-3 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
+              className={`relative px-3.5 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition rounded ${
                 isActive('/partners')
                   ? 'text-white font-bold'
                   : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -474,7 +437,7 @@ export const SiteHeader: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="lg:hidden bg-[#0D0F15] border-b border-white/10 px-4 pt-3 pb-6 space-y-1 shadow-2xl overflow-hidden"
+            className="lg:hidden bg-[#101625] border-b border-white/10 px-4 pt-3 pb-6 space-y-1 shadow-2xl overflow-hidden"
           >
             <Link
               href="/"

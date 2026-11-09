@@ -25,14 +25,14 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
   });
 
   return (
-    <div className="bg-[#151821] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-xl p-5 flex flex-col justify-between group">
+    <div className="bg-[#182236] border border-white/10 hover:border-primary/50 hover:-translate-y-1 shadow-card hover:shadow-cardHover transition-all duration-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between group">
       <div>
         {/* Top: Competition & Badge */}
-        <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10 text-xs">
+        <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/10 text-xs">
           <span className="font-display font-bold uppercase tracking-wider text-primary">
             {match.competition}
           </span>
-          <span className="px-2 py-0.5 rounded bg-[#0D0F15] border border-white/10 text-zinc-300 font-bold text-[10px] uppercase">
+          <span className="px-2.5 py-0.5 rounded bg-[#1C273E] border border-white/10 text-slate-200 font-bold text-[10px] uppercase">
             {match.isHomeMatch ? 'HOME' : 'AWAY'}
           </span>
         </div>

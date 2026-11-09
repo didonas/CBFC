@@ -59,18 +59,18 @@ export const ClubTV: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   return (
-    <div className="bg-[#141926] border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-8 lg:p-10">
+    <div className="bg-[#182236] border border-white/10 rounded-2xl overflow-hidden shadow-card p-7 sm:p-10 lg:p-12">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-6 border-b border-white/10 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-8 border-b border-white/10 gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 text-xs font-display font-bold text-primary tracking-widest uppercase mb-1">
+          <div className="inline-flex items-center gap-2 text-xs font-display font-bold text-primary tracking-widest uppercase mb-1.5">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             RED MACHINES TV • OFFICIAL VIDEO PORTAL
           </div>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
             MATCH HIGHLIGHTS & ACCESS
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+          <p className="text-sm text-slate-300 mt-1">
             Exclusive dressing-room access, gaffer press conferences, match highlights, and archival documentaries.
           </p>
         </div>
@@ -153,7 +153,7 @@ export const ClubTV: React.FC = () => {
                 className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center gap-3.5 group ${
                   isSelected
                     ? 'bg-[#1C2436] border-primary shadow-club'
-                    : 'bg-[#0B0E17]/60 border-white/10 hover:border-white/30 hover:bg-[#1C2436]/60'
+                    : 'bg-[#121826]/70 border-white/10 hover:border-white/30 hover:bg-[#1C273E]'
                 }`}
               >
                 {/* Thumbnail */}

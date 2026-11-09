@@ -33,23 +33,23 @@ export default function TeamPage() {
   });
 
   return (
-    <div className="space-y-12 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#0B0E17] text-zinc-100">
+    <div className="space-y-12 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#121826] text-slate-100">
       {/* Header */}
-      <div className="bg-[#141926] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C2436] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary mb-3">
+      <div className="bg-[#182236] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-card">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C273E] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary mb-3">
           <Users className="w-3.5 h-3.5" />
           FIRST-TEAM SQUAD • 2026/27 CAMPAIGN
         </div>
         <h1 className="font-display font-black text-4xl sm:text-6xl text-white uppercase tracking-tight leading-none">
           THE RED MACHINES SQUAD
         </h1>
-        <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mt-3 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-300 max-w-2xl mt-3 leading-relaxed">
           Meet the players representing Churchill Brothers FC Goa. A blend of Goan local heroes, national prospects, and international firepower.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#141926] p-4 rounded-xl border border-white/10 shadow-xl">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#182236] p-4 rounded-xl border border-white/10 shadow-card">
         {/* Position Filter Tabs */}
         <div className="flex flex-wrap items-center gap-1.5 w-full sm:w-auto">
           {positions.map((pos) => (
@@ -59,7 +59,7 @@ export default function TeamPage() {
               className={`px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition ${
                 selectedPosition === pos
                   ? 'bg-primary text-white shadow-club'
-                  : 'bg-[#1C2436] text-zinc-300 hover:text-white hover:bg-[#252E44] border border-white/10'
+                  : 'bg-[#1C273E] text-slate-300 hover:text-white hover:bg-[#253350] border border-white/10'
               }`}
             >
               {pos === 'All' ? 'All Squad' : `${pos}s`}

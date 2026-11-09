@@ -31,30 +31,30 @@ function MatchesContent() {
   );
 
   return (
-    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#0B0E17] text-zinc-100">
+    <div className="space-y-10 py-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 bg-[#121826] text-slate-100">
       {/* Page Header */}
-      <div className="bg-[#141926] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C2436] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary mb-3">
+      <div className="bg-[#182236] border border-white/10 rounded-2xl p-8 sm:p-10 shadow-card">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C273E] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary mb-3">
           <Calendar className="w-3.5 h-3.5" />
           CALENDAR & MATCH REPORTS • 2026/27 CAMPAIGN
         </div>
         <h1 className="font-display font-black text-4xl sm:text-6xl text-white uppercase tracking-tight leading-none">
           FIXTURES & RESULTS
         </h1>
-        <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mt-3 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-300 max-w-2xl mt-3 leading-relaxed">
           Follow Churchill Brothers FC across national and state campaigns. All kickoff times displayed in Indian Standard Time (IST / Asia/Kolkata).
         </p>
       </div>
 
       {/* Control Tabs & Competition Filter */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#141926] p-4 rounded-xl border border-white/10 shadow-xl">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#182236] p-4 rounded-xl border border-white/10 shadow-card">
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <button
             onClick={() => setActiveTab('upcoming')}
             className={`px-5 py-2.5 rounded-lg text-xs font-display font-bold uppercase tracking-wider transition ${
               activeTab === 'upcoming'
                 ? 'bg-primary text-white shadow-club'
-                : 'bg-[#1C2436] text-zinc-300 hover:text-white hover:bg-[#252E44] border border-white/10'
+                : 'bg-[#1C273E] text-slate-300 hover:text-white hover:bg-[#253350] border border-white/10'
             }`}
           >
             Upcoming Fixtures ({upcomingMatches.length})

@@ -19,19 +19,19 @@ import {
 
 export default function ClubPage() {
   return (
-    <div className="space-y-16 lg:space-y-24 py-10 bg-[#0B0E17] text-zinc-100">
+    <div className="space-y-16 lg:space-y-24 py-10 bg-[#121826] text-slate-100">
       {/* =====================================================================
           1. CLUB HERO / IDENTITY HEADER
           ===================================================================== */}
       <section className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="bg-[#141926] border border-white/10 rounded-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+        <div className="bg-[#182236] border border-white/10 rounded-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-card">
           {/* Subtle Watermark Crest */}
           <div className="absolute -right-12 -bottom-12 opacity-[0.05] pointer-events-none w-96 h-96">
             <ClubCrest size={380} />
           </div>
 
           <div className="max-w-3xl relative z-10 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C2436] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C273E] border border-white/10 text-xs font-display font-bold uppercase tracking-widest text-primary">
               <Star className="w-3.5 h-3.5 fill-primary" />
               THE RED MACHINES • ESTABLISHED 1988
             </div>
@@ -148,10 +148,10 @@ export default function ClubPage() {
               </div>
 
               {/* Pin Indicator */}
-              <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-[#0B0E17] shadow-club" />
+              <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-[#121826] shadow-club" />
 
-              <div className="bg-[#141926] border border-white/10 rounded-xl p-6 shadow-xl hover:border-primary/50 transition">
-                <span className="px-2.5 py-0.5 rounded bg-[#1C2436] border border-white/10 text-primary font-display font-bold text-xs uppercase tracking-wider">
+              <div className="bg-[#182236] border border-white/10 rounded-xl p-6 shadow-card hover:border-primary/50 transition">
+                <span className="px-2.5 py-0.5 rounded bg-[#1C273E] border border-white/10 text-primary font-display font-bold text-xs uppercase tracking-wider">
                   {item.tag}
                 </span>
 
@@ -159,12 +159,12 @@ export default function ClubPage() {
                   {item.title}
                 </h3>
 
-                <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
+                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                   {item.description}
                 </p>
 
                 {item.imageUrl && (
-                  <div className="mt-4 relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-[#0B0E17] border border-white/10">
+                  <div className="mt-4 relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-[#121826] border border-white/10">
                     <Image
                       src={item.imageUrl}
                       alt={item.title}
@@ -191,7 +191,7 @@ export default function ClubPage() {
           <h2 className="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight">
             HOME STADIUMS
           </h2>
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-slate-400">
             Venues etched into the lore and legacy of Churchill Brothers FC Goa.
           </p>
         </div>
@@ -200,10 +200,10 @@ export default function ClubPage() {
           {VENUES.map((venue) => (
             <div
               key={venue.id}
-              className="bg-[#141926] border border-white/10 rounded-xl shadow-xl hover:border-primary/50 transition overflow-hidden flex flex-col justify-between group"
+              className="bg-[#182236] border border-white/10 rounded-xl shadow-card hover:border-primary/50 transition overflow-hidden flex flex-col justify-between group"
             >
               <div>
-                <div className="relative aspect-[16/10] bg-[#0B0E17] overflow-hidden">
+                <div className="relative aspect-[16/10] bg-[#121826] overflow-hidden">
                   <Image
                     src={venue.imageUrl}
                     alt={venue.name}
