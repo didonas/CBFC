@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter, Barlow_Condensed } from 'next/font/google';
+import { Archivo, Inter, Barlow_Condensed } from 'next/font/google';
 import './globals.css';
 import { AppProvider } from '@/lib/store';
 import { DemoBanner } from '@/components/ui/DemoBanner';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
+
+const archivo = Archivo({
+  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  variable: '--font-archivo',
+  display: 'swap',
+});
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,7 +47,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Churchill Brothers FC Goa — The Red Machines',
-    description: 'Built on History. Driven by Passion. Official Football Club Digital Platform.',
+    description: 'A Club. A City. A Legacy. Official Football Club Digital Platform.',
     url: 'https://churchillbrothers.com',
     siteName: 'Churchill Brothers FC Goa',
     images: [
@@ -62,8 +69,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${barlowCondensed.variable}`}>
-      <body className="bg-[#121826] text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
+    <html lang="en" className={`${archivo.variable} ${inter.variable} ${barlowCondensed.variable}`}>
+      <body className="bg-ivory text-ink font-sans min-h-screen flex flex-col antialiased selection:bg-burgundy selection:text-white">
         <AppProvider>
           <ScrollProgress />
           <DemoBanner />

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Play, Clock, Sparkles, ChevronRight } from 'lucide-react';
+import { Play, Clock, ChevronRight, Eye } from 'lucide-react';
 
 interface VideoItem {
   id: string;
@@ -18,7 +18,7 @@ interface VideoItem {
 const VIDEOS: VideoItem[] = [
   {
     id: 'vid-1',
-    title: 'MATCH HIGHLIGHTS: Churchill Brothers 3-1 Salgaocar FC | Lekay Double & Gutiérrez Curler',
+    title: 'Match Highlights: Churchill Brothers 3-1 Salgaocar FC | Lekay Double & Gutiérrez Curler',
     category: 'Match Highlights',
     duration: '04:15',
     thumbnailUrl: '/images/media/gallery-derby-celebration.jpg',
@@ -27,7 +27,7 @@ const VIDEOS: VideoItem[] = [
   },
   {
     id: 'vid-2',
-    title: 'EXCLUSIVE: Sebastián Gutiérrez on the Prestige of Wearing the No. 10 Shirt in Goa',
+    title: 'Exclusive: Sebastián Gutiérrez on the Prestige of Wearing the No. 10 Shirt in Goa',
     category: 'Interview',
     duration: '08:30',
     thumbnailUrl: '/images/players/sebastian-gutierrez.jpg',
@@ -36,7 +36,7 @@ const VIDEOS: VideoItem[] = [
   },
   {
     id: 'vid-3',
-    title: 'INSIDE MARGAO: First-Team Training Drills Ahead of the Dempo SC Showdown',
+    title: 'Inside Margao: First-Team Training Drills Ahead of the Dempo SC Showdown',
     category: 'Behind The Scenes',
     duration: '05:45',
     thumbnailUrl: '/images/media/gallery-training-session.jpg',
@@ -45,7 +45,7 @@ const VIDEOS: VideoItem[] = [
   },
   {
     id: 'vid-4',
-    title: 'HERITAGE VAULT: The Night Churchill Brothers Sealed Their Second National Title',
+    title: 'Heritage Vault: The Night Churchill Brothers Sealed Their Second National Title',
     category: 'Club Heritage',
     duration: '11:20',
     thumbnailUrl: '/images/media/gallery-champions-silverware.jpg',
@@ -59,25 +59,25 @@ export const ClubTV: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   return (
-    <div className="bg-[#182236] border border-white/10 rounded-2xl overflow-hidden shadow-card p-7 sm:p-10 lg:p-12">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-8 border-b border-white/10 gap-4">
+    <div className="bg-white border border-stone rounded-sm p-6 sm:p-8 lg:p-10 shadow-editorial">
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-5 mb-8 border-b border-stone gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 text-xs font-display font-bold text-primary tracking-widest uppercase mb-1.5">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            RED MACHINES TV • OFFICIAL VIDEO PORTAL
+          <div className="inline-flex items-center gap-2 text-xs font-sans font-bold text-burgundy tracking-wider uppercase mb-1">
+            <span className="w-2 h-2 rounded-full bg-burgundy animate-pulse" />
+            Red Machines TV • Official Video Portal
           </div>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
-            MATCH HIGHLIGHTS & ACCESS
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink tracking-tight">
+            Match Highlights & Dressing Room Access
           </h2>
-          <p className="text-sm text-slate-300 mt-1">
-            Exclusive dressing-room access, gaffer press conferences, match highlights, and archival documentaries.
+          <p className="text-xs sm:text-sm text-muted mt-1 font-sans">
+            Exclusive tactical breakdowns, manager press briefings, match highlights, and historical documentaries.
           </p>
         </div>
 
         <Link
           href="/media"
-          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-red-400 transition"
+          className="inline-flex items-center gap-1.5 text-xs font-sans font-semibold uppercase tracking-wider text-burgundy hover:text-burgundy-hover transition shrink-0"
         >
           <span>All Video Features</span>
           <ChevronRight className="w-4 h-4" />
@@ -85,112 +85,115 @@ export const ClubTV: React.FC = () => {
       </div>
 
       {/* Main Grid: Featured Player + Playlist */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Featured Video Player Box (7 Cols) */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black group">
+          <div className="relative aspect-video w-full rounded-sm overflow-hidden border border-stone bg-ink group">
             <Image
               src={activeVideo.thumbnailUrl}
               alt={activeVideo.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+              className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
 
             {/* Play Button Overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
               <button
+                type="button"
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary hover:bg-deepRed text-white flex items-center justify-center shadow-club transition-transform hover:scale-110 active:scale-95 group/btn"
-                title="Play Video Feature"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-burgundy/90 hover:bg-burgundy text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-editorial group-hover:bg-burgundy"
+                aria-label={`Play ${activeVideo.title}`}
               >
-                <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-white ml-1 text-white" />
+                <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-white translate-x-0.5" />
               </button>
             </div>
 
-            {/* Category & Duration Tags */}
+            {/* Video Meta Badges */}
             <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded bg-primary text-white font-display font-bold text-xs uppercase tracking-wider shadow-club">
+              <span className="px-2.5 py-1 bg-burgundy text-white font-sans font-bold text-[10px] uppercase tracking-wider rounded-sm shadow-editorial">
                 {activeVideo.category}
-              </span>
-              <span className="px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] font-bold flex items-center gap-1">
-                <Clock className="w-3 h-3 text-brandGold" />
-                {activeVideo.duration}
               </span>
             </div>
 
-            {/* Video Meta at Bottom */}
-            <div className="absolute bottom-4 left-4 right-4">
-              <h3 className="font-display font-black text-xl sm:text-2xl text-white uppercase leading-snug drop-shadow-md">
-                {activeVideo.title}
-              </h3>
-              <div className="mt-2 flex items-center gap-3 text-xs text-zinc-300">
-                <span>{activeVideo.views} views</span>
-                <span>•</span>
-                <span>{activeVideo.date}</span>
-                <span>•</span>
-                <span className="text-primary font-bold">Red Machines TV Exclusive</span>
-              </div>
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white">
+              <span className="flex items-center gap-1.5 font-mono text-[11px] bg-ink/80 px-2 py-0.5 rounded-sm">
+                <Clock className="w-3.5 h-3.5 text-stone" />
+                {activeVideo.duration}
+              </span>
+              <span className="flex items-center gap-1.5 font-mono text-[11px] bg-ink/80 px-2 py-0.5 rounded-sm">
+                <Eye className="w-3.5 h-3.5 text-stone" />
+                {activeVideo.views} views
+              </span>
             </div>
+          </div>
+
+          <div>
+            <h3 className="font-display font-bold text-lg sm:text-xl text-ink leading-snug">
+              {activeVideo.title}
+            </h3>
+            <p className="text-xs text-muted mt-1 font-sans">
+              Broadcast date: {activeVideo.date} • Churchill Brothers TV Media Production
+            </p>
           </div>
         </div>
 
-        {/* Video Playlist Cards (5 Cols) */}
+        {/* Video Playlist (5 Cols) */}
         <div className="lg:col-span-5 space-y-3">
-          <span className="text-xs font-display font-bold uppercase tracking-wider text-zinc-400 block mb-2">
-            Up Next on Red Machines TV:
+          <span className="text-xs font-sans font-bold uppercase tracking-wider text-muted block mb-1">
+            Featured Broadcasts:
           </span>
 
-          {VIDEOS.map((vid) => {
-            const isSelected = vid.id === activeVideo.id;
-            return (
-              <button
-                key={vid.id}
-                onClick={() => {
-                  setActiveVideo(vid);
-                  setIsPlaying(false);
-                }}
-                className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center gap-3.5 group ${
-                  isSelected
-                    ? 'bg-[#1C2436] border-primary shadow-club'
-                    : 'bg-[#121826]/70 border-white/10 hover:border-white/30 hover:bg-[#1C273E]'
-                }`}
-              >
-                {/* Thumbnail */}
-                <div className="relative w-28 aspect-video rounded-lg overflow-hidden shrink-0 bg-black border border-white/10">
-                  <Image
-                    src={vid.thumbnailUrl}
-                    alt={vid.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="w-6 h-6 rounded-full bg-primary/90 text-white flex items-center justify-center">
-                      <Play className="w-3 h-3 fill-white ml-0.5" />
+          <div className="space-y-2">
+            {VIDEOS.map((vid) => {
+              const isSelected = vid.id === activeVideo.id;
+              return (
+                <button
+                  type="button"
+                  key={vid.id}
+                  onClick={() => setActiveVideo(vid)}
+                  className={`w-full text-left p-3 rounded-sm border transition-all duration-150 flex items-start gap-3.5 ${
+                    isSelected
+                      ? 'bg-ivory border-burgundy shadow-sm'
+                      : 'bg-white hover:bg-ivory border-stone'
+                  }`}
+                >
+                  <div className="relative w-24 h-16 rounded-sm overflow-hidden shrink-0 border border-stone bg-ink">
+                    <Image
+                      src={vid.thumbnailUrl}
+                      alt={vid.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-ink/30 flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-burgundy/80 flex items-center justify-center">
+                        <Play className="w-3 h-3 fill-white translate-x-0.5 text-white" />
+                      </div>
                     </div>
+                    <span className="absolute bottom-1 right-1 px-1 bg-ink/90 text-[9px] font-mono text-white rounded-none">
+                      {vid.duration}
+                    </span>
                   </div>
-                  <span className="absolute bottom-1 right-1 px-1 py-0.5 rounded bg-black/80 text-[9px] font-mono font-bold text-white">
-                    {vid.duration}
-                  </span>
-                </div>
 
-                {/* Info */}
-                <div className="flex-1 min-w-0">
-                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
-                    {vid.category}
-                  </span>
-                  <h4 className="font-display font-bold text-xs sm:text-sm text-white group-hover:text-primary transition line-clamp-2 leading-tight mt-0.5">
-                    {vid.title}
-                  </h4>
-                  <div className="mt-1 flex items-center gap-2 text-[10px] text-zinc-400">
-                    <span>{vid.views} views</span>
-                    <span>•</span>
-                    <span>{vid.date}</span>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-sans font-bold uppercase text-burgundy tracking-wider block">
+                      {vid.category}
+                    </span>
+                    <h4
+                      className={`text-xs font-sans font-semibold line-clamp-2 mt-0.5 leading-snug ${
+                        isSelected ? 'text-burgundy' : 'text-ink'
+                      }`}
+                    >
+                      {vid.title}
+                    </h4>
+                    <span className="text-[10px] text-muted mt-1 block font-mono">
+                      {vid.date} • {vid.views}
+                    </span>
                   </div>
-                </div>
-              </button>
-            );
-          })}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

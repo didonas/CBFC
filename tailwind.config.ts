@@ -9,39 +9,74 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#C8102E",
-          hover: "#9F0C24",
-          light: "#E32644",
-          dark: "#660718",
+        // Contemporary Football Editorial Palette
+        ivory: {
+          DEFAULT: "#F4F3EF",
+          pure: "#FFFFFF",
+          subtle: "#EFECE6",
         },
-        deepRed: "#8F0B23",
-        brandBlack: "#0B0F1A",
-        darkBase: "#121826", // balanced athletic stadium slate (not pitch black)
-        offWhite: "#121826",
-        charcoal: "#182236", // balanced stadium surface
-        darkSurface: "#182236",
-        cardDark: "#1C273E", // cards with clear contrast
-        cardLight: "#22304C", // elevated interactive surface
+        ink: {
+          DEFAULT: "#202020",
+          soft: "#2A2A2A",
+          deep: "#141414",
+        },
+        burgundy: {
+          DEFAULT: "#A51E32",
+          hover: "#8B1728",
+          dark: "#6B101E",
+          light: "#C0253D",
+        },
+        stone: {
+          DEFAULT: "#DAD8D2",
+          light: "#EAE8E2",
+          subtle: "#F0EFEA",
+          dark: "#B8B5AC",
+        },
+        muted: {
+          DEFAULT: "#77736D",
+          light: "#9A958E",
+          dark: "#5A5651",
+        },
+        // Legacy & Compatibility Aliases
+        primary: {
+          DEFAULT: "#A51E32",
+          hover: "#8B1728",
+          light: "#C0253D",
+          dark: "#6B101E",
+        },
+        deepRed: "#8B1728",
         brandGold: {
           DEFAULT: "#D4A72C",
           hover: "#B88E1F",
           light: "#E5BC47",
         },
-        mutedGrey: "#94A3B8",
-        lightBorder: "rgba(255, 255, 255, 0.10)",
-        borderLight: "rgba(255, 255, 255, 0.10)",
-        borderDark: "rgba(255, 255, 255, 0.15)",
+        charcoal: "#202020",
+        darkBase: "#202020",
+        darkSurface: "#2A2A2A",
+        cardDark: "#202020",
+        cardLight: "#FFFFFF",
+        lightBorder: "#DAD8D2",
+        borderLight: "#DAD8D2",
+        borderDark: "#333333",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-barlow-condensed)", "sans-serif"],
+        display: ["var(--font-archivo)", "sans-serif"],
+        stats: ["var(--font-barlow-condensed)", "sans-serif"],
+        mono: ["var(--font-barlow-condensed)", "monospace"],
       },
       boxShadow: {
-        club: "0 4px 20px rgba(200, 16, 46, 0.25)",
-        card: "0 4px 24px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15)",
-        cardHover: "0 12px 36px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(200, 16, 46, 0.15)",
-        dropdown: "0 14px 40px rgba(0, 0, 0, 0.5)",
+        editorial: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        editorialHover: "0 4px 16px rgba(0, 0, 0, 0.08)",
+        club: "0 2px 10px rgba(165, 30, 50, 0.18)",
+        card: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        cardHover: "0 4px 16px rgba(0, 0, 0, 0.08)",
+        dropdown: "0 8px 24px rgba(0, 0, 0, 0.12)",
+      },
+      borderRadius: {
+        sm: "2px",
+        DEFAULT: "3px",
+        md: "4px",
       },
     },
   },

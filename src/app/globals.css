@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: #121826;
-    --foreground: #F1F5F9;
+    --background: #F4F3EF;
+    --foreground: #202020;
   }
 
   body {
@@ -16,20 +16,20 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Refined luxury sports scrollbar */
+  /* Editorial minimalist scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
   ::-webkit-scrollbar-track {
-    background: #121826;
+    background: #F4F3EF;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2D374D;
-    border-radius: 4px;
+    background: #DAD8D2;
+    border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #C8102E;
+    background: #A51E32;
   }
 }
 

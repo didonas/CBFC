@@ -8,7 +8,7 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#121826] text-slate-100">
+    <div className="min-h-screen flex flex-col justify-between bg-ivory text-ink">
       <div>
         <SiteHeader />
         <main className="w-full">{children}</main>
